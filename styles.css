@@ -106,6 +106,8 @@ img {
   image-rendering: auto;
   filter: none;
   transform: none;
+  mix-blend-mode: multiply;
+  background: transparent;
 }
 
 .site-nav {
