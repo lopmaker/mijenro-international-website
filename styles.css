@@ -83,9 +83,9 @@ img {
 
 .brand-logo-horizontal {
   display: block;
-  width: min(340px, 29vw);
+  width: min(94px, 12vw);
   max-width: 100%;
-  min-width: 180px;
+  min-width: 78px;
   height: auto;
   border-radius: 0;
 }
@@ -645,8 +645,8 @@ footer a {
   }
 
   .brand-logo-horizontal {
-    width: min(280px, 58vw);
-    min-width: 160px;
+    width: min(76px, 22vw);
+    min-width: 62px;
   }
 }
 
