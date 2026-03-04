@@ -1,7 +1,0 @@
-<svg width="1500" height="240" viewBox="0 0 1500 240" xmlns="http://www.w3.org/2000/svg" fill="none">
-  <g transform="translate(16,8)">
-    <path d="M52 6H196V45L168 62V34H84V188H168V118L196 135V220H52V6Z" fill="#0D0D0D"/>
-    <path d="M10 174V60L108 112L238 50V174" stroke="#E3A65E" stroke-width="18" stroke-linejoin="miter"/>
-  </g>
-  <text x="300" y="145" fill="#0B0B0B" font-family="Outfit, Montserrat, Avenir Next, sans-serif" font-size="78" font-weight="500" letter-spacing="2">MIJENRO INTERNATIONAL LLC</text>
-</svg>

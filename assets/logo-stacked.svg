@@ -1,8 +1,0 @@
-<svg width="540" height="520" viewBox="0 0 540 520" xmlns="http://www.w3.org/2000/svg" fill="none">
-  <g transform="translate(130,24)">
-    <path d="M56 10H194V50L167 66V38H87V206H167V126L194 142V234H56V10Z" fill="#0D0D0D"/>
-    <path d="M16 186V78L118 132L234 78V186" stroke="#E3A65E" stroke-width="18" stroke-linejoin="miter"/>
-  </g>
-  <text x="270" y="350" text-anchor="middle" fill="#090909" font-family="Outfit, Montserrat, Avenir Next, sans-serif" font-size="72" font-weight="600" letter-spacing="12">MIJENRO</text>
-  <text x="270" y="430" text-anchor="middle" fill="#101010" font-family="Outfit, Montserrat, Avenir Next, sans-serif" font-size="40" font-weight="500" letter-spacing="16">NEW YORK</text>
-</svg>
