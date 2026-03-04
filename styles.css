@@ -76,12 +76,18 @@ img {
 }
 
 .brand {
-  font-family: "Outfit", "Avenir Next", sans-serif;
-  font-size: 1.05rem;
-  letter-spacing: 0.14em;
-  font-weight: 800;
-  color: var(--ink-900);
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-logo-horizontal {
+  display: block;
+  width: min(340px, 29vw);
+  max-width: 100%;
+  min-width: 180px;
+  height: auto;
+  border-radius: 0;
 }
 
 .site-nav {
@@ -636,6 +642,11 @@ footer a {
 
   .header-row .button-small {
     display: none;
+  }
+
+  .brand-logo-horizontal {
+    width: min(280px, 58vw);
+    min-width: 160px;
   }
 }
 
