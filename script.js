@@ -3,21 +3,29 @@
   const nav = document.querySelector(".site-nav");
   const header = document.querySelector(".site-header");
 
+  const t = (key) => (window.I18N && typeof window.I18N.t === "function" ? window.I18N.t(key) : key);
+
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
       const isOpen = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
-      toggle.textContent = isOpen ? "Close" : "Menu";
+      toggle.textContent = isOpen ? t("menu.close") : t("menu.open");
     });
 
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         nav.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        toggle.textContent = "Menu";
+        toggle.textContent = t("menu.open");
       });
     });
   }
+
+  const page = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".site-nav .nav-link").forEach((link) => {
+    const isActive = link.getAttribute("href") === page;
+    link.classList.toggle("active", isActive);
+  });
 
   const onScroll = () => {
     if (!header) return;
@@ -58,5 +66,9 @@
     revealTargets.forEach((el) => observer.observe(el));
   } else {
     revealTargets.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  if (toggle) {
+    toggle.textContent = t("menu.open");
   }
 })();

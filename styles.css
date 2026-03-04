@@ -123,6 +123,29 @@ img {
   margin-left: auto;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.lang-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-700);
+}
+
+.lang-select {
+  border: 1px solid rgba(47, 71, 101, 0.22);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink-900);
+  border-radius: 999px;
+  padding: 0.32rem 0.8rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 .nav-link {
   font-size: 0.92rem;
   font-weight: 600;
@@ -749,6 +772,14 @@ footer a {
   }
 
   .header-row .button-small {
+    display: none;
+  }
+
+  .lang-switch {
+    margin-left: auto;
+  }
+
+  .lang-label {
     display: none;
   }
 
