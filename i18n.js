@@ -153,7 +153,50 @@
       "Contact": "联系",
       "Let’s Discuss Your Garment Wholesale Requirements": "让我们沟通您的服装批发需求",
       "Partnership Inquiry Form": "合作咨询表",
-      "FAQ": "常见问题"
+      "FAQ": "常见问题",
+      "We collaborate with supermarkets, chain stores, e-commerce private labels, and promotional garment distributors.": "我们与超市连锁、连锁门店、电商自有品牌及促销服装分销商合作。",
+      "OEM Manufacturing": "OEM 生产制造",
+      "ODM Product Development": "ODM 产品开发",
+      "Quality & Compliance Support": "质量与合规支持",
+      "Scale-ready production lines for knitwear, woven garments, uniforms, and seasonal capsules with stable lead times.": "针织、梭织、制服和季节性系列均可规模化生产，并保持稳定交期。",
+      "In-house sample and tech-pack support to accelerate design-to-delivery cycles for new product launches.": "提供内部打样与技术包支持，加速新品从设计到交付的周期。",
+      "Documented quality checkpoints, social compliance monitoring, and full support for customer audit preparation.": "建立文档化质检节点、社会责任合规监控，并全程支持客户审厂准备。",
+      "Operational Discipline Built for Partnership Confidence": "以运营纪律建立合作信心",
+      "We combine the transparency of modern compliance programs with the consistency of industrial garment execution, so your teams can onboard and scale with less risk.": "我们将现代合规体系的透明度与工业化服装执行的一致性结合，帮助您的团队以更低风险完成导入与扩量。",
+      "Pre-production review with fabric, trims, and workmanship approval.": "量产前完成面辅料与工艺标准审核确认。",
+      "In-line inspection during cutting, sewing, and finishing stages.": "在裁剪、车缝和后整阶段执行过程检验。",
+      "Final random inspection and packaging verification before shipment.": "出货前执行最终抽检与包装核验。",
+      "Compliance file support for customer onboarding and annual re-audits.": "提供客户准入与年度复审所需的合规资料支持。",
+      "Share your target category, volume, and timeline. We will provide a tailored capability proposal.": "请提供目标品类、需求量和时间计划，我们将给出定制化能力方案。",
+      "From Trading Operations to Full Program Management": "从贸易执行到完整项目管理",
+      "We started as a sourcing office for independent retailers and evolved into a full wholesale management company handling development, production planning, and export coordination.": "我们起步于独立零售商采购服务，现已发展为覆盖开发、生产计划与出口协调的综合批发管理公司。",
+      "Foundation Stage": "奠基阶段",
+      "Factory Integration": "工厂协同阶段",
+      "Compliance Upgrade": "合规升级阶段",
+      "Growth Partnership Model": "成长型合作模式",
+      "Mijenro began with category-focused buying support for basic knit and woven programs.": "Mijenro 以基础针梭织项目的品类采购支持起步。",
+      "Launched dedicated production planning workflows with strategic factory partners in South China.": "与华南战略工厂合作，建立专属生产计划流程。",
+      "Implemented standardized social compliance and process quality documentation across major accounts.": "在主要客户项目中实施标准化社会责任合规与流程质量文档。",
+      "Supporting established retailers and emerging brands with scalable garment wholesale operations.": "通过可扩展的服装批发运营支持成熟零售商与新兴品牌。",
+      "What Partners Can Expect Working With Us": "与我们合作可获得的核心价值",
+      "Accountability": "责任担当",
+      "Transparency": "流程透明",
+      "Scalability": "规模扩展",
+      "Each program has clear ownership from sampling to shipment readiness.": "每个项目从打样到出货准备均有明确负责人。",
+      "Structured updates on production milestones, quality status, and shipping progress.": "围绕生产里程碑、质量状态和出运进度提供结构化更新。",
+      "Capacity planning designed to support both pilot volumes and larger reorder cycles.": "产能规划可同时支持试单规模与后续大货返单周期。",
+      "Need a Stronger Vendor Narrative for Your Buying Team?": "想为采购团队建立更有说服力的供应商介绍？",
+      "We can share a concise company deck and capability profile aligned to your target garment category.": "我们可提供精简公司介绍与能力资料，匹配您的目标服装品类。",
+      "Request Introduction Pack": "索取介绍资料包",
+      "Our production partner network combines modern machinery, skilled garment technicians, and process-driven quality assurance to support reliable wholesale fulfillment.": "我们的生产合作网络整合现代化设备、熟练技术人员与流程化质保体系，确保批发订单稳定交付。",
+      "Five-Step Manufacturing Journey": "五步制造流程",
+      "Adapted for wholesale programs requiring repeat quality at stable commercial lead times.": "专为要求稳定商业交期与一致复购品质的批发项目设计。",
+      "Material Confirmation": "物料确认",
+      "Precision Cutting": "精准裁剪",
+      "Line Sewing Operations": "车缝线生产",
+      "Finishing & Packing": "后整与包装",
+      "Final Audit & Dispatch": "终检与出货",
+      "Reliable garment wholesale manufacturing from development through shipment.": "从开发到出货，提供可靠的服装批发制造执行。"
     },
     "zh-TW": {
       "Global Wholesale Programs": "全球批發專案",
@@ -234,7 +277,10 @@
   );
 
   const applyTextTranslations = () => {
-    const dict = NORMALIZED_TEXT_TRANSLATIONS[currentLang] || {};
+    const dict = {
+      ...(NORMALIZED_TEXT_TRANSLATIONS[currentLang] || {}),
+      ...(currentLang === "zh-TW" ? NORMALIZED_TEXT_TRANSLATIONS["zh-CN"] || {} : {})
+    };
     const nodes = document.querySelectorAll("h1,h2,h3,h4,p,span,a,button,label,li,div");
 
     nodes.forEach((el) => {
