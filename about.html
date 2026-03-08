@@ -1,61 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn about Mijenro International, our history, values, and long-term partnership model for garment wholesale business." />
+  <meta name="description"
+    content="Learn about Mijenro International, our history, values, and long-term partnership model for garment wholesale business." />
   <title>About | Mijenro International</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=6" />
+
+  <style>
+    body.loading-i18n {
+      opacity: 0;
+    }
+
+    body.i18n-ready {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    .lang-btn.active {
+      color: var(--corporate-navy);
+      border-bottom: 2px solid var(--brand-gold);
+    }
+  </style>
 </head>
-<body>
+
+<body class="loading-i18n">
   <div class="site-shell">
     <header class="site-header">
       <div class="container header-row">
         <a class="brand" href="index.html" aria-label="Mijenro International home">
-          <img class="brand-logo-horizontal" src="assets/logo-original-banner.jpg" alt="Mijenro International LLC logo" />
+          <img class="brand-logo-horizontal" src="assets/logo-original-banner.jpg"
+            alt="Mijenro International LLC logo" />
         </a>
         <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About</a>
-          <a class="nav-link" href="capabilities.html">Capabilities</a>
-          <a class="nav-link" href="manufacturing.html">Manufacturing</a>
-          <a class="nav-link" href="sustainability.html">Sustainability</a>
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
+          <a class="nav-link active" href="about.html" data-i18n="nav.about">About</a>
+          <a class="nav-link" href="services.html" data-i18n="nav.services">Services</a>
+          <a class="nav-link" href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
+          <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('en')" data-i18n="nav.lang_en">EN</button>
+            <button class="lang-btn" onclick="setLanguage('zh')" data-i18n="nav.lang_zh">中文</button>
+          </div>
         </nav>
-        <a class="button button-primary button-small" href="contact.html">Start Partnership</a>
+        <a class="button button-primary button-small" href="contact.html" data-i18n="nav.cta">Start Partnership</a>
       </div>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="container hero-grid">
+      <section class="hero reveal">
+        <div class="container hero-grid"
+          style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
           <div>
-            <span class="eyebrow">About Mijenro</span>
-            <h1>A Garment Wholesale Company Built for Reliable Partnership</h1>
-            <p>
-              Mijenro International was created to bridge global buyers with disciplined garment production teams.
-              Our management philosophy is simple: predictable execution, transparent communication, and measurable quality.
-            </p>
+            <span class="eyebrow" data-i18n="about.heroEyebrow">About Mijenro</span>
+            <h1 data-i18n="about.heroTitle" style="margin-bottom: 1.5rem;">A Garment Wholesale Company Built for
+              Reliable Partnership</h1>
+            <p data-i18n="about.heroSubtitle"
+              style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6;">
+              Mijenro International bridges global buyers with disciplined garment production teams. Our philosophy:
+              predictable execution, transparent communication, and measurable quality.
           </div>
           <div class="hero-panel">
-            <article class="hero-card">
-              <img src="https://images.pexels.com/photos/8101985/pexels-photo-8101985.jpeg?cs=srgb&dl=pexels-mikhail-nilov-8101985.jpg&fm=jpg" alt="Chinese business team collaboration" />
-              <div class="hero-metric-row">
-                <div class="metric">
-                  <div class="stat-number">280+</div>
-                  <p>Team members in operations</p>
+            <article class="hero-card"
+              style="border-radius: var(--radius-m); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+              <img src="assets/realistic_office.png" alt="Chinese business team collaboration in factory"
+                style="width: 100%; aspect-ratio: 16/9; object-fit: cover;" />
+              <div class="hero-metric-row display-flex"
+                style="display:flex; gap: 2rem; padding: 2rem; background: var(--surface-bg);">
+                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
+                  <div class="stat-number" data-i18n="about.statTeam">280+</div>
+                  <p data-i18n="about.statTeamLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">Team members
+                    in operations</p>
                 </div>
-                <div class="metric">
-                  <div class="stat-number">9</div>
-                  <p>Production partner facilities</p>
+                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
+                  <div class="stat-number" data-i18n="about.statFacility">9</div>
+                  <p data-i18n="about.statFacilityLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">
+                    Production partner facilities</p>
                 </div>
-                <div class="metric">
-                  <div class="stat-number">98%</div>
-                  <p>Repeat wholesale accounts</p>
+                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
+                  <div class="stat-number" data-i18n="about.statRetention">98%</div>
+                  <p data-i18n="about.statRetentionLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">Repeat
+                    wholesale accounts</p>
                 </div>
               </div>
             </article>
@@ -63,82 +115,101 @@
         </div>
       </section>
 
-      <section class="soft-surface">
+      <section
+        style="background-color: var(--surface-bg-alt); padding: 4rem 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); overflow: hidden;">
+        <div class="container" style="text-align: center; max-width: 1200px;">
+          <h4
+            style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 3rem;"
+            data-i18n="about.trustedEyebrow">Trusted supply chain partner for leading global retailers:</h4>
+
+          <div class="marquee-wrapper">
+            <div class="marquee-content" style="animation-duration: 40s;">
+              <div class="retailer-logo retailer-marquee-logo r-walmart" style="font-size: 1.8rem;">WALMART</div>
+              <div class="retailer-logo retailer-marquee-logo r-costco" style="font-size: 1.8rem;">COSTCO</div>
+              <div class="retailer-logo retailer-marquee-logo r-target" style="font-size: 1.8rem;">TARGET</div>
+              <div class="retailer-logo retailer-marquee-logo r-marmaxx" style="font-size: 1.8rem;">MARMAXX</div>
+              <div class="retailer-logo retailer-marquee-logo r-ross" style="font-size: 2.1rem;">Ross</div>
+              <div class="retailer-logo retailer-marquee-logo r-burlington" style="font-size: 1.8rem;">Burlington</div>
+              <div class="retailer-logo retailer-marquee-logo r-fashionnova" style="font-size: 1.5rem;">FASHION NOVA
+              </div>
+              <div class="retailer-logo retailer-marquee-logo r-fivebelow" style="font-size: 1.9rem;">five<span
+                  style="font-size:1.4rem;">BELOW</span></div>
+            </div>
+            <!-- Duplicate for seamless looping -->
+            <div class="marquee-content" style="animation-duration: 40s;" aria-hidden="true">
+              <div class="retailer-logo retailer-marquee-logo r-walmart" style="font-size: 1.8rem;">WALMART</div>
+              <div class="retailer-logo retailer-marquee-logo r-costco" style="font-size: 1.8rem;">COSTCO</div>
+              <div class="retailer-logo retailer-marquee-logo r-target" style="font-size: 1.8rem;">TARGET</div>
+              <div class="retailer-logo retailer-marquee-logo r-marmaxx" style="font-size: 1.8rem;">MARMAXX</div>
+              <div class="retailer-logo retailer-marquee-logo r-ross" style="font-size: 2.1rem;">Ross</div>
+              <div class="retailer-logo retailer-marquee-logo r-burlington" style="font-size: 1.8rem;">Burlington</div>
+              <div class="retailer-logo retailer-marquee-logo r-fashionnova" style="font-size: 1.5rem;">FASHION NOVA
+              </div>
+              <div class="retailer-logo retailer-marquee-logo r-fivebelow" style="font-size: 1.9rem;">five<span
+                  style="font-size:1.4rem;">BELOW</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="soft-surface reveal">
         <div class="container">
           <div class="section-head">
-            <span class="eyebrow">Company Story</span>
-            <h2>From Trading Operations to Full Program Management</h2>
-            <p>
-              We started as a sourcing office for independent retailers and evolved into a full wholesale management company
-              handling development, production planning, and export coordination.
+            <span class="eyebrow" data-i18n="about.approachEyebrow">Modern Approach</span>
+            <h2 data-i18n="about.approachTitle">Agile Garment Manufacturing Built for Today's Market</h2>
+            <p data-i18n="about.approachSubtitle">
+              As a newly established, forward-thinking wholesale partner, we leverage modern supply chain strategies,
+              digital communication, and strict operational transparency to deliver premium garments on time.
             </p>
           </div>
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="year">2005</div>
-              <div>
-                <h3>Foundation Stage</h3>
-                <p>Mijenro began with category-focused buying support for basic knit and woven programs.</p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="year">2012</div>
-              <div>
-                <h3>Factory Integration</h3>
-                <p>Launched dedicated production planning workflows with strategic factory partners in South China.</p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="year">2018</div>
-              <div>
-                <h3>Compliance Upgrade</h3>
-                <p>Implemented standardized social compliance and process quality documentation across major accounts.</p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="year">Today</div>
-              <div>
-                <h3>Growth Partnership Model</h3>
-                <p>Supporting established retailers and emerging brands with scalable garment wholesale operations.</p>
-              </div>
-            </article>
+          <div class="industry-gallery">
+            <img src="assets/modern_asian_factory_clean.png" alt="Clean and bright garment production line"
+              class="img-corporate-frame" />
+            <img src="assets/asian_quality_control_modern.png" alt="Quality inspection and fabric checking process"
+              class="img-corporate-frame" />
+            <img src="assets/asian_warehouse_logistics.png" alt="Modern logistics and inventory management"
+              class="img-corporate-frame" />
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="reveal">
         <div class="container">
           <div class="section-head">
-            <span class="eyebrow">Our Values</span>
-            <h2>What Partners Can Expect Working With Us</h2>
+            <span class="eyebrow" data-i18n="about.valuesEyebrow">Our Values</span>
+            <h2 data-i18n="about.valuesTitle" style="max-width: 900px; margin: 0 auto; text-wrap: balance;">What
+              Partners Can Expect Working With Us</h2>
           </div>
           <div class="grid-3">
             <article class="card">
-              <span class="icon-badge">A</span>
-              <h3>Accountability</h3>
-              <p>Each program has clear ownership from sampling to shipment readiness.</p>
+              <span class="icon-badge">01</span>
+              <h3 data-i18n="about.value1Title">Accountability</h3>
+              <p data-i18n="about.value1Desc">Each program has clear ownership from sampling to shipment readiness.</p>
             </article>
             <article class="card">
-              <span class="icon-badge">T</span>
-              <h3>Transparency</h3>
-              <p>Structured updates on production milestones, quality status, and shipping progress.</p>
+              <span class="icon-badge">02</span>
+              <h3 data-i18n="about.value2Title">Transparency</h3>
+              <p data-i18n="about.value2Desc">Structured updates on production milestones, quality status, and shipping
+                progress.</p>
             </article>
             <article class="card">
-              <span class="icon-badge">S</span>
-              <h3>Scalability</h3>
-              <p>Capacity planning designed to support both pilot volumes and larger reorder cycles.</p>
+              <span class="icon-badge">03</span>
+              <h3 data-i18n="about.value3Title">Scalability</h3>
+              <p data-i18n="about.value3Desc">Capacity planning designed to support both pilot volumes and larger
+                reorder cycles.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="reveal">
         <div class="container cta-banner">
           <div>
-            <h2 class="h2">Need a Stronger Vendor Narrative for Your Buying Team?</h2>
-            <p>We can share a concise company deck and capability profile aligned to your target garment category.</p>
+            <h2 class="h2" data-i18n="about.ctaTitle">Need a Stronger Vendor Narrative for Your Buying Team?</h2>
+            <p data-i18n="about.ctaSubtitle">We can share a concise company deck and capability profile aligned to your
+              target garment category.</p>
           </div>
-          <a class="button button-primary" href="contact.html">Request Introduction Pack</a>
+          <a class="button button-primary" href="contact.html" data-i18n="about.ctaButton">Request Introduction Pack</a>
         </div>
       </section>
     </main>
@@ -146,29 +217,31 @@
     <footer>
       <div class="container">
         <div class="footer-grid">
-          <div>
-            <h4>Mijenro International</h4>
-            <p>Built for long-term wholesale relationships in the garment industry.</p>
+          <div class="footer-brand">
+            <img class="brand-logo-horizontal" src="assets/logo-transparent-light.png"
+              alt="Mijenro International LLC logo" />
+            <p data-i18n="footer.descAbout">Ready to build practical, long-term partnership models in garment wholesale.
+            </p>
           </div>
-          <div>
-            <h4>Company</h4>
+          <div class="footer-col">
+            <h4 data-i18n="footer.company">Company</h4>
             <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="capabilities.html">Capabilities</a></li>
-              <li><a href="manufacturing.html">Manufacturing</a></li>
-              <li><a href="sustainability.html">Sustainability</a></li>
+              <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+              <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+              <li><a href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a></li>
             </ul>
           </div>
-          <div>
-            <h4>Partnership</h4>
+          <div class="footer-col">
+            <h4 data-i18n="footer.partnership">Partnership</h4>
             <ul>
-              <li>Program Planning</li>
-              <li>Sampling &amp; Development</li>
-              <li>Export Documentation</li>
+              <li data-i18n="contact.faq2A">We prepare key quality and process documents needed for buyer onboarding.
+              </li>
+              <li data-i18n="about.value3Title">Scalability</li>
+              <li data-i18n="contact.block4Line2">Virtual and on-site options</li>
             </ul>
           </div>
-          <div>
-            <h4>Contact</h4>
+          <div class="footer-col">
+            <h4 data-i18n="footer.contact">Contact</h4>
             <ul>
               <li>business@mijenro.com</li>
               <li>+86 755 0000 1234</li>
@@ -177,12 +250,14 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© <span data-year></span> Mijenro International. All rights reserved.</span>
-          <span><span>General Company Introduction Website</span></span>
+          <span>© <span data-year></span> <span data-i18n="footer.rights">Mijenro International. All rights
+              reserved.</span></span>
+          <span data-i18n="footer.legal">General Company Introduction Website</span>
         </div>
       </div>
     </footer>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js?v=6"></script>
 </body>
+
 </html>

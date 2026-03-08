@@ -1,76 +1,144 @@
-(() => {
-  const toggle = document.querySelector(".mobile-toggle");
-  const nav = document.querySelector(".site-nav");
-  const header = document.querySelector(".site-header");
-  const menuLabel = {
-    open: "Menu",
-    close: "Close"
-  };
+// script.js
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-      toggle.textContent = isOpen ? menuLabel.close : menuLabel.open;
+// --- i18n Configuration ---
+let currentLang = localStorage.getItem('mijenro_lang') || 'en';
+let translations = {};
+
+async function loadLanguage(lang) {
+  try {
+    const response = await fetch(`locales/${lang}.json`);
+    translations = await response.json();
+    applyTranslations();
+    document.body.classList.remove('loading-i18n');
+    document.body.classList.add('i18n-ready');
+
+    // Update active state on language switcher buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.remove('active');
     });
 
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.textContent = menuLabel.open;
-      });
-    });
-  }
-
-  const page = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".site-nav .nav-link").forEach((link) => {
-    const isActive = link.getAttribute("href") === page;
-    link.classList.toggle("active", isActive);
-  });
-
-  const onScroll = () => {
-    if (!header) return;
-    header.classList.toggle("scrolled", window.scrollY > 10);
-  };
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-
-  const yearTargets = document.querySelectorAll("[data-year]");
-  const year = String(new Date().getFullYear());
-  yearTargets.forEach((target) => {
-    target.textContent = year;
-  });
-
-  const revealTargets = document.querySelectorAll(
-    "section, .card, .timeline-item, .kpi-item, .cta-banner, .table-wrap, .partner-strip"
-  );
-
-  revealTargets.forEach((el, index) => {
-    el.classList.add("reveal");
-    const delay = Math.min((index % 6) * 70, 280);
-    el.style.setProperty("--reveal-delay", `${delay}ms`);
-  });
-
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reducedMotion && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.14, rootMargin: "0px 0px -40px 0px" }
+    // Find button matching this lang (hacky but works for this demo)
+    const activeBtn = Array.from(document.querySelectorAll('.lang-btn')).find(b =>
+      b.getAttribute('onclick')?.includes(`'${lang}'`)
     );
+    if (activeBtn) activeBtn.classList.add('active');
 
-    revealTargets.forEach((el) => observer.observe(el));
-  } else {
-    revealTargets.forEach((el) => el.classList.add("is-visible"));
+  } catch (error) {
+    console.error('Error loading language file:', error);
+    document.body.classList.remove('loading-i18n'); // Failsafe
   }
+}
 
-  if (toggle) {
-    toggle.textContent = menuLabel.open;
+function applyTranslations() {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const path = element.getAttribute('data-i18n');
+    const keys = path.split('.');
+    let value = translations;
+
+    // Traverse the nested JSON
+    for (const key of keys) {
+      if (value[key] !== undefined) {
+        value = value[key];
+      } else {
+        value = null;
+        break;
+      }
+    }
+
+    if (value) {
+      const targetAttr = element.getAttribute('data-i18n-attr');
+      if (targetAttr) {
+        element.setAttribute(targetAttr, value);
+      } else {
+        element.textContent = value;
+      }
+    }
+  });
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('mijenro_lang', lang);
+  loadLanguage(lang);
+}
+
+// Initialize i18n
+document.addEventListener('DOMContentLoaded', () => {
+  loadLanguage(currentLang);
+});
+
+
+// --- Dynamic Footer Year ---
+document.addEventListener('DOMContentLoaded', () => {
+  const yearSpans = document.querySelectorAll('[data-year]');
+  const currentYear = new Date().getFullYear();
+  yearSpans.forEach(span => {
+    span.textContent = currentYear;
+  });
+});
+
+// --- Mobile Navigation Toggle ---
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleButton = document.querySelector('.mobile-toggle');
+  const siteNav = document.getElementById('site-nav');
+
+  if (toggleButton && siteNav) {
+    toggleButton.addEventListener('click', () => {
+      const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+      toggleButton.setAttribute('aria-expanded', !isExpanded);
+      siteNav.classList.toggle('open');
+
+      // Prevent body scroll when menu is open
+      if (!isExpanded) {
+        document.body.style.overflow = 'hidden';
+        toggleButton.textContent = 'Close';
+      } else {
+        document.body.style.overflow = '';
+        toggleButton.textContent = 'Menu';
+      }
+    });
   }
-})();
+});
+
+// --- Sticky Header Effect ---
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.site-header');
+
+  if (header) {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+  }
+});
+
+// --- Scroll Reveal Animations ---
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const revealElements = document.querySelectorAll('.reveal');
+  revealElements.forEach(el => observer.observe(el));
+});
+
+

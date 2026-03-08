@@ -1,141 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Mijenro International to discuss garment wholesale, OEM, and ODM partnership opportunities." />
+  <meta name="description"
+    content="Contact Mijenro International to discuss garment wholesale, OEM, and ODM partnership opportunities." />
   <title>Contact | Mijenro International</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=6" />
+
+  <style>
+    body.loading-i18n {
+      opacity: 0;
+    }
+
+    body.i18n-ready {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    .lang-btn.active {
+      color: var(--corporate-navy);
+      border-bottom: 2px solid var(--brand-gold);
+    }
+  </style>
 </head>
-<body>
+
+<body class="loading-i18n">
   <div class="site-shell">
     <header class="site-header">
       <div class="container header-row">
         <a class="brand" href="index.html" aria-label="Mijenro International home">
-          <img class="brand-logo-horizontal" src="assets/logo-original-banner.jpg" alt="Mijenro International LLC logo" />
+          <img class="brand-logo-horizontal" src="assets/logo-original-banner.jpg"
+            alt="Mijenro International LLC logo" />
         </a>
         <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About</a>
-          <a class="nav-link" href="capabilities.html">Capabilities</a>
-          <a class="nav-link" href="manufacturing.html">Manufacturing</a>
-          <a class="nav-link" href="sustainability.html">Sustainability</a>
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
+          <a class="nav-link" href="about.html" data-i18n="nav.about">About</a>
+          <a class="nav-link" href="services.html" data-i18n="nav.services">Services</a>
+          <a class="nav-link" href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
+          <a class="nav-link active" href="contact.html" data-i18n="nav.contact">Contact</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('en')" data-i18n="nav.lang_en">EN</button>
+            <button class="lang-btn" onclick="setLanguage('zh')" data-i18n="nav.lang_zh">中文</button>
+          </div>
         </nav>
-        <a class="button button-primary button-small" href="contact.html">Start Partnership</a>
+        <a class="button button-primary button-small" href="contact.html" data-i18n="nav.cta">Start Partnership</a>
       </div>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="container">
-          <span class="eyebrow">Contact</span>
-          <h1>Let’s Discuss Your Garment Wholesale Requirements</h1>
-          <p>
-            Share your category, estimated order volume, and target market. Our team will respond with a practical
-            collaboration path and suggested next steps.
-          </p>
+      <section class="hero reveal">
+        <div class="container hero-grid"
+          style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+          <div>
+            <span class="eyebrow" data-i18n="contact.heroEyebrow">Contact</span>
+            <h1 data-i18n="contact.heroTitle">Let’s Discuss Your Garment Wholesale Requirements</h1>
+            <p data-i18n="contact.heroSubtitle" style="font-size: 1.15rem; margin-bottom: 2rem;">
+              Share your category, estimated order volume, and target market. Our team will respond with a practical
+              collaboration path and suggested next steps.
+            </p>
+          </div>
+          <div class="hero-panel"
+            style="border-radius: var(--radius-m); overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+            <img src="assets/realistic_office.png" alt="Client communication team"
+              style="width: 100%; aspect-ratio: 4/3; object-fit: cover;" />
+          </div>
         </div>
       </section>
 
-      <section>
+      <section class="reveal">
         <div class="container contact-columns">
-          <article class="card">
-            <h2 class="h2">Partnership Inquiry Form</h2>
-            <p>Please provide core requirements so we can align the right merchandising and production resources.</p>
+          <article class="card form-card"
+            style="background: var(--surface-bg); border-top: 4px solid var(--brand-gold);">
+            <h2 class="h2" data-i18n="contact.formTitle">Partnership Inquiry Form</h2>
+            <p data-i18n="contact.formSubtitle">Please provide core requirements so we can align the right merchandising
+              and production resources.</p>
             <form>
               <div class="form-grid">
                 <div class="field">
-                  <label for="company">Company Name</label>
-                  <input id="company" name="company" type="text" placeholder="Your company" />
+                  <label for="company" data-i18n="contact.labelCompany">Company Name</label>
+                  <input id="company" name="company" type="text" data-i18n="contact.placeholderCompany"
+                    data-i18n-attr="placeholder" placeholder="Your company" />
                 </div>
                 <div class="field">
-                  <label for="name">Contact Person</label>
-                  <input id="name" name="name" type="text" placeholder="Your name" />
+                  <label for="name" data-i18n="contact.labelName">Contact Person</label>
+                  <input id="name" name="name" type="text" data-i18n="contact.placeholderName"
+                    data-i18n-attr="placeholder" placeholder="Your name" />
                 </div>
                 <div class="field">
-                  <label for="email">Business Email</label>
-                  <input id="email" name="email" type="email" placeholder="name@company.com" />
+                  <label for="email" data-i18n="contact.labelEmail">Business Email</label>
+                  <input id="email" name="email" type="email" data-i18n="contact.placeholderEmail"
+                    data-i18n-attr="placeholder" placeholder="name@company.com" />
                 </div>
                 <div class="field">
-                  <label for="market">Target Market</label>
+                  <label for="market" data-i18n="contact.labelMarket">Target Market</label>
                   <select id="market" name="market">
-                    <option>North America</option>
-                    <option>Europe</option>
-                    <option>Middle East</option>
-                    <option>Asia Pacific</option>
-                    <option>Multi-region</option>
+                    <option data-i18n="contact.marketOpt1">North America</option>
+                    <option data-i18n="contact.marketOpt2">Europe</option>
+                    <option data-i18n="contact.marketOpt3">Middle East</option>
+                    <option data-i18n="contact.marketOpt4">Asia Pacific</option>
+                    <option data-i18n="contact.marketOpt5">Multi-region</option>
                   </select>
                 </div>
                 <div class="field">
-                  <label for="category">Main Product Category</label>
-                  <input id="category" name="category" type="text" placeholder="e.g. knit tops, uniforms" />
+                  <label for="category" data-i18n="contact.labelCategory">Main Product Category</label>
+                  <input id="category" name="category" type="text" data-i18n="contact.placeholderCategory"
+                    data-i18n-attr="placeholder" placeholder="e.g. knit tops, uniforms" />
                 </div>
                 <div class="field">
-                  <label for="volume">Estimated Order Volume</label>
-                  <input id="volume" name="volume" type="text" placeholder="e.g. 30,000 pcs / month" />
+                  <label for="volume" data-i18n="contact.labelVolume">Estimated Order Volume</label>
+                  <input id="volume" name="volume" type="text" data-i18n="contact.placeholderVolume"
+                    data-i18n-attr="placeholder" placeholder="e.g. 30,000 pcs / month" />
                 </div>
                 <div class="field full">
-                  <label for="message">Project Notes</label>
-                  <textarea id="message" name="message" placeholder="Share lead-time expectations, target cost, and quality requirements."></textarea>
+                  <label for="message" data-i18n="contact.labelNotes">Project Notes</label>
+                  <textarea id="message" name="message" data-i18n="contact.placeholderNotes"
+                    data-i18n-attr="placeholder"
+                    placeholder="Share lead-time expectations, target cost, and quality requirements."></textarea>
                 </div>
               </div>
               <p>
-                <button class="button button-primary" type="submit">Submit Inquiry</button>
+                <button class="button button-primary" type="submit" data-i18n="contact.submitButton">Submit
+                  Inquiry</button>
               </p>
             </form>
           </article>
 
-          <div class="grid-2">
-            <article class="card contact-visual">
-              <img src="https://images.pexels.com/photos/8101983/pexels-photo-8101983.jpeg?cs=srgb&dl=pexels-mikhail-nilov-8101983.jpg&fm=jpg" alt="Chinese partnership coordinator" loading="lazy" />
+          <div class="grid-3" style="margin-top: 4rem;">
+            <article class="card soft-highlight" style="text-align: center;">
+              <h3 data-i18n="contact.block1Title" style="color: var(--corporate-navy);">Business Development</h3>
+              <p data-i18n="contact.block1Line1" style="margin-bottom: 0.5rem;">Email: business@mijenro.com</p>
+              <p data-i18n="contact.block1Line2">Phone: +86 755 0000 1234</p>
             </article>
-            <article class="card">
-              <h3>Business Development</h3>
-              <p>Email: business@mijenro.com</p>
-              <p>Phone: +86 755 0000 1234</p>
+            <article class="card soft-highlight" style="text-align: center;">
+              <h3 data-i18n="contact.block2Title" style="color: var(--corporate-navy);">Office Hours</h3>
+              <p data-i18n="contact.block2Line1" style="margin-bottom: 0.5rem;">Monday to Friday</p>
+              <p data-i18n="contact.block2Line2">09:00-18:00 China Standard Time</p>
             </article>
-            <article class="card">
-              <h3>Office Hours</h3>
-              <p>Monday to Friday</p>
-              <p>09:00-18:00 China Standard Time</p>
-            </article>
-            <article class="card">
-              <h3>Head Office</h3>
-              <p>Nanshan District, Shenzhen</p>
-              <p>Guangdong, China</p>
-            </article>
-            <article class="card">
-              <h3>Factory Visits</h3>
-              <p>Available by appointment</p>
-              <p>Virtual and on-site options</p>
+            <article class="card soft-highlight" style="text-align: center;">
+              <h3 data-i18n="contact.block3Title" style="color: var(--corporate-navy);">Head Office</h3>
+              <p data-i18n="contact.block3Line1" style="margin-bottom: 0.5rem;">Nanshan District, Shenzhen</p>
+              <p data-i18n="contact.block3Line2">Guangdong, China</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="soft-surface">
+      <section class="soft-surface reveal">
         <div class="container">
           <div class="section-head">
-            <span class="eyebrow">FAQ</span>
-            <h2>Common Questions From New Partners</h2>
+            <span class="eyebrow" data-i18n="contact.faqEyebrow">FAQ</span>
+            <h2 data-i18n="contact.faqTitle">Common Questions From New Partners</h2>
           </div>
           <div class="grid-3">
-            <article class="card">
-              <h3>Do you support new brands?</h3>
-              <p>Yes. We support startup and growth-stage brands with structured pilot programs.</p>
+            <article class="card border-top-navy">
+              <h3 data-i18n="contact.faq1Q">Do you support new brands?</h3>
+              <p data-i18n="contact.faq1A">Yes. We support startup and growth-stage brands with structured pilot
+                programs.</p>
             </article>
-            <article class="card">
-              <h3>Can you provide compliance files?</h3>
-              <p>We prepare key quality and process documents needed for buyer onboarding.</p>
+            <article class="card border-top-navy">
+              <h3 data-i18n="contact.faq2Q">Can you provide compliance files?</h3>
+              <p data-i18n="contact.faq2A">We prepare key quality and process documents needed for buyer onboarding.</p>
             </article>
-            <article class="card">
-              <h3>How soon can sampling start?</h3>
-              <p>Most projects can begin sampling within 1-2 weeks after requirement alignment.</p>
+            <article class="card border-top-navy">
+              <h3 data-i18n="contact.faq3Q">How soon can sampling start?</h3>
+              <p data-i18n="contact.faq3A">Most projects can begin sampling within 1-2 weeks after requirement
+                alignment.</p>
             </article>
           </div>
         </div>
@@ -145,29 +201,30 @@
     <footer>
       <div class="container">
         <div class="footer-grid">
-          <div>
-            <h4>Mijenro International</h4>
-            <p>Ready to build practical, long-term partnership models in garment wholesale.</p>
+          <div class="footer-brand">
+            <img class="brand-logo-horizontal" src="assets/logo-transparent-light.png"
+              alt="Mijenro International LLC logo" />
+            <p data-i18n="footer.descHome">Built for long-term wholesale relationships in the garment industry.</p>
           </div>
-          <div>
-            <h4>Company</h4>
+          <div class="footer-col">
+            <h4 data-i18n="footer.company">Company</h4>
             <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="capabilities.html">Capabilities</a></li>
-              <li><a href="manufacturing.html">Manufacturing</a></li>
-              <li><a href="sustainability.html">Sustainability</a></li>
+              <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+              <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+              <li><a href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a></li>
             </ul>
           </div>
-          <div>
-            <h4>Partnership</h4>
+          <div class="footer-col">
+            <h4 data-i18n="footer.partnership">Partnership</h4>
             <ul>
-              <li>New Account Onboarding</li>
-              <li>Category Expansion</li>
-              <li>Seasonal Programs</li>
+              <li data-i18n="contact.faq1A">We support startup and growth-stage brands with structured pilot programs.
+              </li>
+              <li data-i18n="contact.labelMarket">Target Market</li>
+              <li data-i18n="contact.marketOpt5">Multi-region</li>
             </ul>
           </div>
-          <div>
-            <h4>Contact</h4>
+          <div class="footer-col">
+            <h4 data-i18n="footer.contact">Contact</h4>
             <ul>
               <li>business@mijenro.com</li>
               <li>+86 755 0000 1234</li>
@@ -176,12 +233,14 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© <span data-year></span> Mijenro International. All rights reserved.</span>
-          <span><span>General Company Introduction Website</span></span>
+          <span>© <span data-year></span> <span data-i18n="footer.rights">Mijenro International. All rights
+              reserved.</span></span>
+          <span data-i18n="footer.legal">General Company Introduction Website</span>
         </div>
       </div>
     </footer>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js?v=6"></script>
 </body>
+
 </html>
