@@ -1262,3 +1262,122 @@ footer a:hover {
   font-weight: 400;
   margin-left: 2px;
 }
+
+/* ===== Interactive Cycle Wheel ===== */
+.cycle-wrapper {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3.5rem;
+}
+
+.cycle-wheel-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.cycle-svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  filter: drop-shadow(0 8px 32px rgba(27, 58, 110, 0.13));
+  border-radius: 50%;
+}
+
+.cycle-info-panel {
+  display: flex;
+  align-items: center;
+  min-height: 280px;
+}
+
+#cycle-step-display {
+  padding: 2.5rem;
+  background: var(--surface-bg, #f8f9fc);
+  border: 1px solid var(--border-subtle, #e4e8f0);
+  border-radius: var(--radius-m, 12px);
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(27, 58, 110, 0.07);
+  transition: all 0.4s ease;
+}
+
+.cycle-step-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--gold-accent, #C8942A);
+  opacity: 0.25;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  transition: opacity 0.3s;
+  letter-spacing: -0.03em;
+}
+
+#cycle-step-display:has(> .cycle-step-number:not(:empty)) .cycle-step-number {
+  opacity: 1;
+}
+
+.cycle-step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--corporate-navy, #1B3A6E);
+  margin-bottom: 0.75rem;
+  transition: all 0.3s;
+}
+
+.cycle-step-desc {
+  font-size: 1rem;
+  color: var(--text-secondary, #5a6a82);
+  line-height: 1.7;
+  margin: 0;
+  transition: all 0.3s;
+}
+
+/* Mobile Pills */
+.cycle-pills {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.cycle-pill {
+  padding: 0.5rem 1rem;
+  border: 1.5px solid var(--border-subtle, #e4e8f0);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--text-secondary, #5a6a82);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: inherit;
+}
+
+.cycle-pill:hover,
+.cycle-pill.active {
+  background: var(--corporate-navy, #1B3A6E);
+  color: white;
+  border-color: var(--corporate-navy, #1B3A6E);
+}
+
+@media (max-width: 900px) {
+  .cycle-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cycle-wheel-container {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .cycle-info-panel {
+    min-height: auto;
+  }
+
+  .cycle-pills {
+    display: flex;
+  }
+}
