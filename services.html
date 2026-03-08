@@ -311,15 +311,31 @@
           function startAuto() { timer = setInterval(next, 3200); }
           function clearAuto() { if (timer) { clearInterval(timer); timer = null; } }
 
-          // Pause on hover, resume on leave
+          // Pause on hover, resume on leave (only if autoplay is running)
           const wrapper = document.querySelector('.ring-cycle-wrapper');
           if (wrapper) {
             wrapper.addEventListener('mouseenter', clearAuto);
-            wrapper.addEventListener('mouseleave', startAuto);
+            wrapper.addEventListener('mouseleave', () => { if (isVisible) startAuto(); });
           }
 
+          // Start with step 01 shown statically
           go(0);
-          startAuto();
+
+          // Only start auto-play when section scrolls into view
+          let isVisible = false;
+          const section = document.querySelector('.ring-cycle-wrapper').closest('section');
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !isVisible) {
+                isVisible = true;
+                startAuto();
+              } else if (!entry.isIntersecting && isVisible) {
+                isVisible = false;
+                clearAuto();
+              }
+            });
+          }, { threshold: 0.35 });
+          if (section) observer.observe(section);
         })();
       </script>
 
