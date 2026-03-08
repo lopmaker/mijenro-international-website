@@ -328,7 +328,8 @@
             entries.forEach(entry => {
               if (entry.isIntersecting && !isVisible) {
                 isVisible = true;
-                startAuto();
+                // Kick off first transition quickly, then start regular 5s interval
+                setTimeout(() => { if (isVisible) { next(); startAuto(); } }, 1500);
               } else if (!entry.isIntersecting && isVisible) {
                 isVisible = false;
                 clearAuto();
