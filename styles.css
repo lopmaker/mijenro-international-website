@@ -1381,3 +1381,108 @@ footer a:hover {
     display: flex;
   }
 }
+
+/* ===== Auto-Rotating Ring Cycle ===== */
+.ring-cycle-wrapper {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 5rem;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.ring-svg-container {
+  display: flex;
+  justify-content: center;
+}
+
+.ring-svg-container svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  overflow: visible;
+}
+
+.ring-info-panel {
+  display: flex;
+  align-items: center;
+  min-height: 280px;
+}
+
+#ring-display {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ring-step-num {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--gold-accent, #C8942A);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: 1rem;
+}
+
+.ring-step-bar {
+  width: 40px;
+  height: 3px;
+  background: var(--gold-accent, #C8942A);
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.ring-step-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--corporate-navy, #1B3A6E);
+  margin-bottom: 0.85rem;
+}
+
+.ring-step-desc {
+  font-size: 1rem;
+  color: var(--text-secondary, #5a6a82);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.ring-progress-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.rdot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d0d6e0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.rdot.active {
+  background: var(--gold-accent, #C8942A);
+  width: 24px;
+  border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+  .ring-cycle-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .ring-svg-container svg {
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .ring-info-panel {
+    min-height: auto;
+  }
+
+  .ring-step-num {
+    font-size: 2.5rem;
+  }
+}

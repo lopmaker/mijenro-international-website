@@ -175,7 +175,7 @@
         </div>
       </section>
 
-      <!-- Production Cycle: Interactive Wheel -->
+      <!-- Production Cycle: Auto-Rotating Ring -->
       <section class="reveal" style="padding: 5rem 0;">
         <div class="container">
           <div class="section-head">
@@ -184,109 +184,147 @@
             <p data-i18n="manufacturing.flowSubtitle">Adapted for wholesale programs requiring repeat quality at stable
               commercial lead times.</p>
           </div>
-          <div class="cycle-wrapper">
-            <!-- SVG Wheel -->
-            <div class="cycle-wheel-container">
-              <svg class="cycle-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="seg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#C8942A;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#1B3A6E;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-                <g id="wheel-segments"></g>
-                <g id="wheel-nodes"></g>
-                <circle cx="200" cy="200" r="68" fill="var(--primary-dark, #1B3A6E)" />
-                <text x="200" y="195" text-anchor="middle" fill="#C8942A" font-size="11" font-family="Inter,sans-serif"
-                  font-weight="600" letter-spacing="1">MIJENRO</text>
-                <text x="200" y="212" text-anchor="middle" fill="white" font-size="9" font-family="Inter,sans-serif"
-                  opacity="0.7">PROCESS</text>
+
+          <div class="ring-cycle-wrapper">
+            <!-- Ring SVG -->
+            <div class="ring-svg-container">
+              <svg id="ring-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Base ring -->
+                <circle cx="200" cy="200" r="140" fill="none" stroke="#e4e8f0" stroke-width="1.5" />
+                <!-- Animated progress arc drawn by JS -->
+                <circle id="ring-progress" cx="200" cy="200" r="140" fill="none" stroke="#C8942A" stroke-width="2"
+                  stroke-dasharray="879.6" stroke-dashoffset="879.6" stroke-linecap="round"
+                  transform="rotate(-90 200 200)" style="transition: stroke-dashoffset 0.6s ease;" />
+                <!-- Step nodes and labels drawn by JS -->
+                <g id="ring-nodes"></g>
               </svg>
             </div>
+
             <!-- Info Panel -->
-            <div class="cycle-info-panel">
-              <div id="cycle-step-display">
-                <div class="cycle-step-number" id="cycle-num"></div>
-                <h3 class="cycle-step-title" id="cycle-title">Click any step</h3>
-                <p class="cycle-step-desc" id="cycle-desc">Select a segment on the wheel to view step details.</p>
+            <div class="ring-info-panel">
+              <div id="ring-display">
+                <div class="ring-step-num" id="ring-num">01</div>
+                <div class="ring-step-bar"></div>
+                <h3 class="ring-step-title" id="ring-title">Material Confirmation</h3>
+                <p class="ring-step-desc" id="ring-desc">Incoming fabric and trims are checked against approved
+                  references.</p>
+                <div class="ring-progress-dots" id="ring-dots"></div>
               </div>
             </div>
           </div>
-
-          <!-- Step Pills for mobile -->
-          <div class="cycle-pills" id="cycle-pills"></div>
-
-          <script>
-            (function () {
-              const steps = [
-                { key: '1', titleKey: 'manufacturing.flow1Title', descKey: 'manufacturing.flow1Desc', fb: ['Material Confirmation', 'Incoming fabric and trims are checked against approved references.'] },
-                { key: '2', titleKey: 'manufacturing.flow2Title', descKey: 'manufacturing.flow2Desc', fb: ['Precision Cutting', 'Marker planning and cutting control reduce variance and improve yield.'] },
-                { key: '3', titleKey: 'manufacturing.flow3Title', descKey: 'manufacturing.flow3Desc', fb: ['Line Sewing Operations', 'Operator allocation and in-line checkpoints ensure workmanship.'] },
-                { key: '4', titleKey: 'manufacturing.flow4Title', descKey: 'manufacturing.flow4Desc', fb: ['Finishing & Packing', 'Pressing, labeling, and carton setup follow buyer specifications.'] },
-                { key: '5', titleKey: 'manufacturing.flow5Title', descKey: 'manufacturing.flow5Desc', fb: ['Final Audit & Dispatch', 'Random inspection and shipment document checks are completed.'] }
-              ];
-              const cx = 200, cy = 200, outerR = 155, innerR = 90, total = steps.length, startAngle = -90;
-              const svgSeg = document.getElementById('wheel-segments');
-              const svgNodes = document.getElementById('wheel-nodes');
-              let activeIdx = -1;
-
-              function polar(angle, r) { const rad = angle * Math.PI / 180; return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) }; }
-              function arcPath(s, e, iR, oR) {
-                const g = 3, lf = (e - s - 2 * g) > 180 ? 1 : 0;
-                const p1 = polar(s + g, oR), p2 = polar(e - g, oR), p3 = polar(e - g, iR), p4 = polar(s + g, iR);
-                return `M${p1.x} ${p1.y} A${oR} ${oR} 0 ${lf} 1 ${p2.x} ${p2.y} L${p3.x} ${p3.y} A${iR} ${iR} 0 ${lf} 0 ${p4.x} ${p4.y}Z`;
-              }
-              function tr(key, fb) { try { const ks = key.split('.'); let v = window.translations || {}; for (const k of ks) { v = v[k]; if (!v) break; } return (typeof v === 'string' && v) ? v : fb; } catch (e) { return fb; } }
-
-              function selectStep(i) {
-                activeIdx = i;
-                document.querySelectorAll('.wseg').forEach((el, j) => { el.style.opacity = j === i ? '1' : '0.3'; el.style.filter = j === i ? 'brightness(1.2)' : 'none'; });
-                document.querySelectorAll('.wnode').forEach((el, j) => { el.setAttribute('r', j === i ? '27' : '22'); el.setAttribute('fill', j === i ? '#C8942A' : '#1B3A6E'); });
-                document.getElementById('cycle-num').textContent = '0' + steps[i].key;
-                document.getElementById('cycle-title').textContent = tr(steps[i].titleKey, steps[i].fb[0]);
-                document.getElementById('cycle-desc').textContent = tr(steps[i].descKey, steps[i].fb[1]);
-                document.querySelectorAll('.cycle-pill').forEach((el, j) => el.classList.toggle('active', j === i));
-              }
-
-              const segAngle = 360 / total;
-              steps.forEach((step, i) => {
-                const s = startAngle + i * segAngle, e = s + segAngle, mid = s + segAngle / 2;
-                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                path.setAttribute('d', arcPath(s, e, innerR, outerR));
-                path.setAttribute('fill', 'url(#seg-gradient)');
-                path.style.cssText = 'opacity:0.3;cursor:pointer;transition:opacity 0.35s,filter 0.35s;';
-                path.classList.add('wseg');
-                path.addEventListener('click', () => selectStep(i));
-                svgSeg.appendChild(path);
-
-                const np = polar(mid, (innerR + outerR) / 2);
-                const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                c.setAttribute('cx', np.x); c.setAttribute('cy', np.y); c.setAttribute('r', '22');
-                c.setAttribute('fill', '#1B3A6E'); c.classList.add('wnode');
-                c.style.cssText = 'cursor:pointer;transition:all 0.35s;';
-                c.addEventListener('click', () => selectStep(i));
-                svgNodes.appendChild(c);
-
-                const nt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                nt.setAttribute('x', np.x); nt.setAttribute('y', np.y + 5);
-                nt.setAttribute('text-anchor', 'middle'); nt.setAttribute('fill', 'white');
-                nt.setAttribute('font-size', '13'); nt.setAttribute('font-weight', '700');
-                nt.setAttribute('font-family', 'Inter,sans-serif'); nt.style.pointerEvents = 'none';
-                nt.textContent = '0' + step.key;
-                svgNodes.appendChild(nt);
-
-                const pill = document.createElement('button');
-                pill.className = 'cycle-pill';
-                pill.textContent = '0' + step.key + ' ' + tr(step.titleKey, step.fb[0]);
-                pill.addEventListener('click', () => selectStep(i));
-                document.getElementById('cycle-pills').appendChild(pill);
-              });
-
-              setTimeout(() => selectStep(0), 300);
-            })();
-          </script>
         </div>
       </section>
+
+      <script>
+        (function () {
+          const steps = [
+            { key: '1', title: 'Material Confirmation', desc: 'Incoming fabric and trims are checked against approved references.', titleKey: 'manufacturing.flow1Title', descKey: 'manufacturing.flow1Desc' },
+            { key: '2', title: 'Precision Cutting', desc: 'Marker planning and cutting control reduce variance and improve yield.', titleKey: 'manufacturing.flow2Title', descKey: 'manufacturing.flow2Desc' },
+            { key: '3', title: 'Line Sewing Operations', desc: 'Operator allocation and in-line checkpoints ensure workmanship.', titleKey: 'manufacturing.flow3Title', descKey: 'manufacturing.flow3Desc' },
+            { key: '4', title: 'Finishing & Packing', desc: 'Pressing, labeling, and carton setup follow buyer specifications.', titleKey: 'manufacturing.flow4Title', descKey: 'manufacturing.flow4Desc' },
+            { key: '5', title: 'Final Audit & Dispatch', desc: 'Random inspection and shipment document checks are completed.', titleKey: 'manufacturing.flow5Title', descKey: 'manufacturing.flow5Desc' }
+          ];
+          const cx = 200, cy = 200, R = 140, n = steps.length;
+          const nodeG = document.getElementById('ring-nodes');
+          const circumference = 2 * Math.PI * R; // ~879.6
+          let current = 0, timer = null;
+
+          function tr(key, fb) { try { const ks = key.split('.'); let v = window.translations || {}; for (const k of ks) { v = v[k]; if (!v) break; } return (typeof v === 'string' && v) ? v : fb; } catch (e) { return fb; } }
+          function angle(i) { return -90 + i * (360 / n); }
+          function pos(i) { const a = angle(i) * Math.PI / 180; return { x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) }; }
+
+          // Draw progress dots
+          const dotsEl = document.getElementById('ring-dots');
+          steps.forEach((_, i) => { const d = document.createElement('span'); d.className = 'rdot'; d.dataset.i = i; d.addEventListener('click', () => { clearAuto(); go(i); }); dotsEl.appendChild(d); });
+
+          // Draw ring nodes
+          steps.forEach((step, i) => {
+            const p = pos(i);
+            const a = angle(i);
+            // Determine text anchor and offset based on position
+            const isRight = a > -45 && a < 135;
+            const isTop = a > -135 && a < -45;
+            const isBottom = a > 45 && a < 135;
+
+            const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            g.style.cursor = 'pointer';
+            g.addEventListener('click', () => { clearAuto(); go(i); });
+
+            const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', '7');
+            c.setAttribute('fill', '#e4e8f0'); c.setAttribute('stroke', '#e4e8f0'); c.setAttribute('stroke-width', '2');
+            c.classList.add('rnode'); c.style.transition = 'all 0.4s';
+            g.appendChild(c);
+
+            // Label
+            const lx = cx + (R + 28) * Math.cos(angle(i) * Math.PI / 180);
+            const ly = cy + (R + 28) * Math.sin(angle(i) * Math.PI / 180);
+            const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            t.setAttribute('x', lx); t.setAttribute('y', ly + 4);
+            t.setAttribute('text-anchor', lx < cx - 5 ? 'end' : lx > cx + 5 ? 'start' : 'middle');
+            t.setAttribute('fill', '#8a95a8'); t.setAttribute('font-size', '11');
+            t.setAttribute('font-family', 'Inter,sans-serif'); t.setAttribute('font-weight', '500');
+            t.classList.add('rlabel'); t.style.transition = 'all 0.4s';
+            t.textContent = tr(step.titleKey, step.title);
+            g.appendChild(t);
+
+            nodeG.appendChild(g);
+          });
+
+          const rnodes = document.querySelectorAll('.rnode');
+          const rlabels = document.querySelectorAll('.rlabel');
+          const rdots = document.querySelectorAll('.rdot');
+          const progressEl = document.getElementById('ring-progress');
+
+          function go(i) {
+            current = i;
+            // Update nodes
+            rnodes.forEach((el, j) => {
+              el.setAttribute('fill', j === i ? '#C8942A' : '#e4e8f0');
+              el.setAttribute('stroke', j === i ? '#C8942A' : '#e4e8f0');
+              el.setAttribute('r', j === i ? '9' : '6');
+            });
+            rlabels.forEach((el, j) => {
+              el.setAttribute('fill', j === i ? '#1B3A6E' : '#8a95a8');
+              el.setAttribute('font-weight', j === i ? '700' : '500');
+            });
+            rdots.forEach((el, j) => el.classList.toggle('active', j === i));
+
+            // Update progress arc: fill up to current step
+            const fraction = (i + 1) / n;
+            progressEl.style.strokeDashoffset = circumference * (1 - fraction);
+
+            // Fade panel content
+            const display = document.getElementById('ring-display');
+            display.style.opacity = '0';
+            display.style.transform = 'translateY(6px)';
+            setTimeout(() => {
+              document.getElementById('ring-num').textContent = '0' + steps[i].key;
+              document.getElementById('ring-title').textContent = tr(steps[i].titleKey, steps[i].title);
+              document.getElementById('ring-desc').textContent = tr(steps[i].descKey, steps[i].desc);
+              display.style.opacity = '1';
+              display.style.transform = 'translateY(0)';
+            }, 220);
+          }
+
+          function next() { current = (current + 1) % n; go(current); }
+          function startAuto() { timer = setInterval(next, 3200); }
+          function clearAuto() { if (timer) { clearInterval(timer); timer = null; } }
+
+          // Pause on hover, resume on leave
+          const wrapper = document.querySelector('.ring-cycle-wrapper');
+          if (wrapper) {
+            wrapper.addEventListener('mouseenter', clearAuto);
+            wrapper.addEventListener('mouseleave', startAuto);
+          }
+
+          go(0);
+          startAuto();
+        })();
+      </script>
+
+
+
 
       <section class="soft-surface reveal">
         <div class="container">
