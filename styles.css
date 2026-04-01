@@ -41,8 +41,8 @@
   /* Overtaking pill with sharp box */
 
   /* Spacing */
-  --nav-height: 220px;
-  /* Extremely tall header for doubled logo size */
+  --nav-height: 154px;
+  /* 70% of 220px */
 }
 
 /* =========================================
@@ -289,8 +289,8 @@ section {
 }
 
 .brand-logo-horizontal {
-  height: 200px;
-  /* Maximize logo footprint */
+  height: 140px;
+  /* 70% of 200px */
   width: auto;
   object-fit: contain;
   mix-blend-mode: multiply; /* Removes the grey/white background */
