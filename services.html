@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Explore Mijenro International capabilities across OEM, ODM, private label garment programs, and global logistics support." />
+  <title>Capabilities | Mijenro International</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=6" />
+
+  <style>
+    body.loading-i18n {
+      opacity: 0;
+    }
+
+    body.i18n-ready {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    .lang-btn.active {
+      color: var(--corporate-navy);
+      border-bottom: 2px solid var(--brand-gold);
+    }
+  </style>
+</head>
+
+<body class="loading-i18n">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="index.html" aria-label="Mijenro International home">
+          <img class="brand-logo-horizontal" src="assets/new_logo.png"
+            alt="Mijenro International LLC logo" />
+        </a>
+        <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+          <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
+          <a class="nav-link" href="about.html" data-i18n="nav.about">About</a>
+          <a class="nav-link active" href="services.html" data-i18n="nav.services">Services</a>
+          <a class="nav-link" href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
+          <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('en')" data-i18n="nav.lang_en">EN</button>
+            <button class="lang-btn" onclick="setLanguage('zh')" data-i18n="nav.lang_zh">中文</button>
+          </div>
+        </nav>
+        <a class="button button-primary button-small" href="contact.html" data-i18n="nav.cta">Connect With Us</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <div class="container hero-grid"
+          style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+          <div>
+            <span class="eyebrow" data-i18n="capabilities.heroEyebrow">Capabilities</span>
+            <h1 data-i18n="capabilities.heroTitle">Complete Program Support for Garment Wholesale Growth</h1>
+            <p data-i18n="capabilities.heroSubtitle">
+              Mijenro combines sourcing intelligence, product development, controlled production, and logistics
+              management to help buyers scale without compromising quality.
+            </p>
+          </div>
+          <div class="hero-panel">
+            <article class="hero-card"
+              style="border-radius: var(--radius-m); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+              <div class="hero-showcase" style="height: auto;">
+                <img src="assets/mijenro_services_sampling_room.png" alt="Mijenro garment sampling and fitting room" style="height: auto; min-height: 0; object-fit: contain;" />
+              </div>
+              <div class="hero-metric-row display-flex"
+                style="display:flex; gap: 2rem; padding: 2rem; background: var(--surface-bg);">
+                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
+                  <div class="stat-number" data-i18n="capabilities.statMerch">45+</div>
+                  <p data-i18n="capabilities.statMerchLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">
+                    Dedicated merchandisers</p>
+                </div>
+                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
+                  <div class="stat-number" data-i18n="capabilities.statCat">4</div>
+                  <p data-i18n="capabilities.statCatLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">Primary
+                    garment categories</p>
+                </div>
+                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
+                  <div class="stat-number" data-i18n="capabilities.statResponse">72h</div>
+                  <p data-i18n="capabilities.statResponseLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">
+                    Initial response window</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-i18n="capabilities.servicesEyebrow">Program Services</span>
+            <h2 data-i18n="capabilities.servicesTitle">Designed Around Buyer and Brand Workflows</h2>
+          </div>
+          <div class="services-timeline"
+            style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; position: relative; margin-top: 3rem;">
+            <!-- Decorative horizontal connecting line (desktop only) -->
+            <div
+              style="position: absolute; top: 32px; left: 10%; right: 10%; height: 2px; background: linear-gradient(to right, transparent, var(--brand-gold), transparent); z-index: 0; opacity: 0.5;"
+              class="desktop-only-line"></div>
+
+            <article class="service-node" style="position: relative; z-index: 1; text-align: center;">
+              <div class="node-icon"
+                style="width: 64px; height: 64px; margin: 0 auto 1.5rem; background: var(--corporate-navy); color: var(--brand-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; box-shadow: 0 0 0 8px var(--surface-bg);">
+                01
+              </div>
+              <h3 data-i18n="capabilities.service1Title" style="font-size: 1.1rem; margin-bottom: 0.75rem;">Category
+                Sourcing</h3>
+              <p data-i18n="capabilities.service1Desc" style="font-size: 0.9rem; color: var(--text-secondary);">Fabric
+                mill matching, trim sourcing, and target-cost alignment for each category.</p>
+            </article>
+
+            <article class="service-node" style="position: relative; z-index: 1; text-align: center;">
+              <div class="node-icon"
+                style="width: 64px; height: 64px; margin: 0 auto 1.5rem; background: var(--corporate-navy); color: var(--brand-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; box-shadow: 0 0 0 8px var(--surface-bg);">
+                02
+              </div>
+              <h3 data-i18n="capabilities.service2Title" style="font-size: 1.1rem; margin-bottom: 0.75rem;">Sample
+                Development</h3>
+              <p data-i18n="capabilities.service2Desc" style="font-size: 0.9rem; color: var(--text-secondary);">
+                Prototype and fit sample management with structured revision tracking.</p>
+            </article>
+
+            <article class="service-node" style="position: relative; z-index: 1; text-align: center;">
+              <div class="node-icon"
+                style="width: 64px; height: 64px; margin: 0 auto 1.5rem; background: var(--corporate-navy); color: var(--brand-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; box-shadow: 0 0 0 8px var(--surface-bg);">
+                03
+              </div>
+              <h3 data-i18n="capabilities.service3Title" style="font-size: 1.1rem; margin-bottom: 0.75rem;">Bulk
+                Production</h3>
+              <p data-i18n="capabilities.service3Desc" style="font-size: 0.9rem; color: var(--text-secondary);">Managed
+                allocation to vetted partner facilities with in-line QC gates.</p>
+            </article>
+
+            <article class="service-node" style="position: relative; z-index: 1; text-align: center;">
+              <div class="node-icon"
+                style="width: 64px; height: 64px; margin: 0 auto 1.5rem; background: var(--corporate-navy); color: var(--brand-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; box-shadow: 0 0 0 8px var(--surface-bg);">
+                04
+              </div>
+              <h3 data-i18n="capabilities.service4Title" style="font-size: 1.1rem; margin-bottom: 0.75rem;">Logistics
+                Support</h3>
+              <p data-i18n="capabilities.service4Desc" style="font-size: 0.9rem; color: var(--text-secondary);">
+                Forwarder handover, document prep, and localized port staging solutions.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Production Cycle: Auto-Rotating Ring -->
+      <section class="reveal" style="padding: 5rem 0;">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-i18n="manufacturing.flowEyebrow">Production Flow</span>
+            <h2 data-i18n="manufacturing.flowTitle">Five-Step Manufacturing Journey</h2>
+            <p data-i18n="manufacturing.flowSubtitle">Adapted for wholesale programs requiring repeat quality at stable
+              commercial lead times.</p>
+          </div>
+
+          <div class="ring-cycle-wrapper">
+            <!-- Ring SVG -->
+            <div class="ring-svg-container">
+              <svg id="ring-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Base ring -->
+                <circle cx="200" cy="200" r="140" fill="none" stroke="#e4e8f0" stroke-width="1.5" />
+                <!-- Animated progress arc drawn by JS -->
+                <circle id="ring-progress" cx="200" cy="200" r="140" fill="none" stroke="#C8942A" stroke-width="2"
+                  stroke-dasharray="879.6" stroke-dashoffset="879.6" stroke-linecap="round"
+                  transform="rotate(-90 200 200)" style="transition: stroke-dashoffset 0.6s ease;" />
+                <!-- Step nodes and labels drawn by JS -->
+                <g id="ring-nodes"></g>
+              </svg>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="ring-info-panel">
+              <div id="ring-display">
+                <div class="ring-step-num" id="ring-num">01</div>
+                <div class="ring-step-bar"></div>
+                <h3 class="ring-step-title" id="ring-title">Material Confirmation</h3>
+                <p class="ring-step-desc" id="ring-desc">Incoming fabric and trims are checked against approved
+                  references.</p>
+                <div class="ring-progress-dots" id="ring-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        (function () {
+          const steps = [
+            { key: '1', title: 'Material Confirmation', desc: 'Incoming fabric and trims are checked against approved references.', titleKey: 'manufacturing.flow1Title', descKey: 'manufacturing.flow1Desc' },
+            { key: '2', title: 'Precision Cutting', desc: 'Marker planning and cutting control reduce variance and improve yield.', titleKey: 'manufacturing.flow2Title', descKey: 'manufacturing.flow2Desc' },
+            { key: '3', title: 'Line Sewing Operations', desc: 'Operator allocation and in-line checkpoints ensure workmanship.', titleKey: 'manufacturing.flow3Title', descKey: 'manufacturing.flow3Desc' },
+            { key: '4', title: 'Finishing & Packing', desc: 'Pressing, labeling, and carton setup follow buyer specifications.', titleKey: 'manufacturing.flow4Title', descKey: 'manufacturing.flow4Desc' },
+            { key: '5', title: 'Final Audit & Dispatch', desc: 'Random inspection and shipment document checks are completed.', titleKey: 'manufacturing.flow5Title', descKey: 'manufacturing.flow5Desc' }
+          ];
+          const cx = 200, cy = 200, R = 140, n = steps.length;
+          const nodeG = document.getElementById('ring-nodes');
+          const circumference = 2 * Math.PI * R; // ~879.6
+          let current = 0, timer = null;
+
+          function tr(key, fb) { try { const ks = key.split('.'); let v = window.translations || {}; for (const k of ks) { v = v[k]; if (!v) break; } return (typeof v === 'string' && v) ? v : fb; } catch (e) { return fb; } }
+          function angle(i) { return -90 + i * (360 / n); }
+          function pos(i) { const a = angle(i) * Math.PI / 180; return { x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) }; }
+
+          // Draw progress dots
+          const dotsEl = document.getElementById('ring-dots');
+          steps.forEach((_, i) => { const d = document.createElement('span'); d.className = 'rdot'; d.dataset.i = i; d.addEventListener('click', () => { clearAuto(); go(i); }); dotsEl.appendChild(d); });
+
+          // Draw ring nodes
+          steps.forEach((step, i) => {
+            const p = pos(i);
+            const a = angle(i);
+            // Determine text anchor and offset based on position
+            const isRight = a > -45 && a < 135;
+            const isTop = a > -135 && a < -45;
+            const isBottom = a > 45 && a < 135;
+
+            const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            g.style.cursor = 'pointer';
+            g.addEventListener('click', () => { clearAuto(); go(i); });
+
+            const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', '7');
+            c.setAttribute('fill', '#e4e8f0'); c.setAttribute('stroke', '#e4e8f0'); c.setAttribute('stroke-width', '2');
+            c.classList.add('rnode'); c.style.transition = 'all 0.4s';
+            g.appendChild(c);
+
+            // Label
+            const lx = cx + (R + 28) * Math.cos(angle(i) * Math.PI / 180);
+            const ly = cy + (R + 28) * Math.sin(angle(i) * Math.PI / 180);
+            const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            t.setAttribute('x', lx); t.setAttribute('y', ly + 4);
+            t.setAttribute('text-anchor', lx < cx - 5 ? 'end' : lx > cx + 5 ? 'start' : 'middle');
+            t.setAttribute('fill', '#8a95a8'); t.setAttribute('font-size', '13');
+            t.setAttribute('font-family', 'Inter,sans-serif'); t.setAttribute('font-weight', '500');
+            t.classList.add('rlabel'); t.style.transition = 'all 0.4s';
+            t.textContent = tr(step.titleKey, step.title);
+            g.appendChild(t);
+
+            nodeG.appendChild(g);
+          });
+
+          const rnodes = document.querySelectorAll('.rnode');
+          const rlabels = document.querySelectorAll('.rlabel');
+          const rdots = document.querySelectorAll('.rdot');
+          const progressEl = document.getElementById('ring-progress');
+
+          function go(i) {
+            current = i;
+            // Update nodes
+            rnodes.forEach((el, j) => {
+              el.setAttribute('fill', j === i ? '#C8942A' : '#e4e8f0');
+              el.setAttribute('stroke', j === i ? '#C8942A' : '#e4e8f0');
+              el.setAttribute('r', j === i ? '9' : '6');
+            });
+            rlabels.forEach((el, j) => {
+              el.setAttribute('fill', j === i ? '#1B3A6E' : '#8a95a8');
+              el.setAttribute('font-weight', j === i ? '700' : '500');
+            });
+            rdots.forEach((el, j) => el.classList.toggle('active', j === i));
+
+            // Update progress arc: fill up to current step
+            const fraction = (i + 1) / n;
+            progressEl.style.strokeDashoffset = circumference * (1 - fraction);
+
+            // Fade panel content
+            const display = document.getElementById('ring-display');
+            display.style.opacity = '0';
+            display.style.transform = 'translateY(6px)';
+            setTimeout(() => {
+              document.getElementById('ring-num').textContent = '0' + steps[i].key;
+              document.getElementById('ring-title').textContent = tr(steps[i].titleKey, steps[i].title);
+              document.getElementById('ring-desc').textContent = tr(steps[i].descKey, steps[i].desc);
+              display.style.opacity = '1';
+              display.style.transform = 'translateY(0)';
+            }, 220);
+          }
+
+          function next() { current = (current + 1) % n; go(current); }
+          function startAuto() { timer = setInterval(next, 5000); }
+          function clearAuto() { if (timer) { clearInterval(timer); timer = null; } }
+
+          // Pause on hover, resume on leave (only if autoplay is running)
+          const wrapper = document.querySelector('.ring-cycle-wrapper');
+          if (wrapper) {
+            wrapper.addEventListener('mouseenter', clearAuto);
+            wrapper.addEventListener('mouseleave', () => { if (isVisible) startAuto(); });
+          }
+
+          // Start with step 01 shown statically
+          go(0);
+
+          // Only start auto-play when section scrolls into view
+          let isVisible = false;
+          const section = document.querySelector('.ring-cycle-wrapper').closest('section');
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !isVisible) {
+                isVisible = true;
+                // Kick off first transition quickly, then start regular 5s interval
+                setTimeout(() => { if (isVisible) { next(); startAuto(); } }, 1500);
+              } else if (!entry.isIntersecting && isVisible) {
+                isVisible = false;
+                clearAuto();
+              }
+            });
+          }, { threshold: 0.15 });
+          if (section) observer.observe(section);
+        })();
+      </script>
+
+
+
+
+      <section class="soft-surface reveal">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-i18n="capabilities.scopeEyebrow">Product Scope</span>
+            <h2 data-i18n="capabilities.scopeTitle">Garment Categories We Commonly Produce</h2>
+          </div>
+          <div class="grid-2">
+            <article class="card">
+              <h3 data-i18n="capabilities.cat1Title">Casualwear</h3>
+              <p data-i18n="capabilities.cat1Desc">T-shirts, polos, hoodies, sweatshirts, and knit bottoms for seasonal
+                and evergreen lines.</p>
+            </article>
+            <article class="card">
+              <h3 data-i18n="capabilities.cat2Title">Workwear & Uniforms</h3>
+              <p data-i18n="capabilities.cat2Desc">Corporate uniforms, utility garments, and high-repeat reorder
+                programs.</p>
+            </article>
+            <article class="card">
+              <h3 data-i18n="capabilities.cat3Title">Kidswear</h3>
+              <p data-i18n="capabilities.cat3Desc">Age-segmented fits, labeling compliance support, and multi-pack
+                retail programs.</p>
+            </article>
+            <article class="card">
+              <h3 data-i18n="capabilities.cat4Title">Promotional Apparel</h3>
+              <p data-i18n="capabilities.cat4Desc">Event-driven merchandise and campaign products with controlled lead
+                times.</p>
+            </article>
+          </div>
+
+          <div class="supply-chain-section" style="margin-top: 5rem;">
+            <div class="section-head">
+              <h3 data-i18n="capabilities.supplyChainTitle">Supply Chain</h3>
+            </div>
+            
+            <style>
+              .supply-chain-grid {
+                display: grid;
+                grid-template-columns: 2.5fr 1fr;
+                align-items: center;
+                gap: 3rem;
+                padding: 3rem;
+                margin-top: 2rem;
+              }
+              @media (max-width: 768px) {
+                .supply-chain-grid {
+                  grid-template-columns: 1fr;
+                  gap: 2rem;
+                  padding: 1.5rem;
+                }
+              }
+            </style>
+            <div class="supply-chain-panel card supply-chain-grid">
+              <div id="world-map-container" style="display: flex; justify-content: center; align-items: center;">
+                <!-- D3 Map will be injected here -->
+              </div>
+              <div>
+                <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1.5rem;">
+                  <li style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="background: var(--brand-gold); width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                    <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-primary);" data-i18n="capabilities.countryChina">China</span>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="background: var(--brand-gold); width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                    <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-primary);" data-i18n="capabilities.countryVietnam">Vietnam</span>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="background: var(--brand-gold); width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                    <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-primary);" data-i18n="capabilities.countryCambodia">Cambodia</span>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="background: var(--brand-gold); width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                    <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-primary);" data-i18n="capabilities.countryBangladesh">Bangladesh</span>
+                  </li>
+                  <li style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="background: var(--brand-gold); width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                    <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-primary);" data-i18n="capabilities.countrySouthAfrica">South Africa</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <section class="reveal">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow" data-i18n="capabilities.workflowEyebrow">How We Work</span>
+            <h2 data-i18n="capabilities.workflowTitle">Simple Partnership Structure</h2>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <span class="icon-badge">A</span>
+              <h3 data-i18n="capabilities.step1Title">Align Scope</h3>
+              <p data-i18n="capabilities.step1Desc">We map your category, volume, pricing, and compliance expectations
+                before sampling starts.</p>
+            </article>
+            <article class="card">
+              <span class="icon-badge">B</span>
+              <h3 data-i18n="capabilities.step2Title">Build Plan</h3>
+              <p data-i18n="capabilities.step2Desc">Our team prepares development, production, and delivery windows with
+                critical checkpoints.</p>
+            </article>
+            <article class="card">
+              <span class="icon-badge">C</span>
+              <h3 data-i18n="capabilities.step3Title">Execute & Scale</h3>
+              <p data-i18n="capabilities.step3Desc">Performance tracking supports reorder confidence and phased volume
+                expansion.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="container cta-banner">
+          <div>
+            <h2 class="h2" data-i18n="capabilities.ctaTitle">Need a Capability Match Against Your Product Plan?</h2>
+            <p data-i18n="capabilities.ctaSubtitle">Send your target category and expected MOQ. We will suggest a
+              partnership model that fits.</p>
+          </div>
+          <a class="button button-primary" href="contact.html" data-i18n="capabilities.ctaButton">Discuss Program</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h2 style="font-size: 2rem; letter-spacing: 0.1em; color: var(--surface-bg); margin-bottom: 1rem; font-weight: 800;">MIJENRO</h2>
+
+            <p data-i18n="footer.descHome">Built for long-term wholesale relationships in the garment industry.</p>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.company">Company</h4>
+            <ul>
+              <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+              <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+              <li><a href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.partnership">Partnership</h4>
+            <ul>
+              <li data-i18n="capabilities.service1Title">Category Sourcing</li>
+              <li data-i18n="capabilities.service3Title">Bulk Production</li>
+              <li data-i18n="capabilities.service4Title">Logistics Coordination</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.contact">Contact</h4>
+            <ul>
+              <li>contact@mijenro.com</li>
+              <li>+1  917-239-5702</li>
+              <li>New York, USA</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-year></span> <span data-i18n="footer.rights">Mijenro International. All rights
+              reserved.</span></span>
+          <span data-i18n="footer.legal">General Company Introduction Website</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="script.js?v=6"></script>
+  
+  <!-- D3 Map Integration -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const container = d3.select('#world-map-container');
+      if (container.empty()) return;
+
+      const width = 800;
+      const height = 450;
+
+      const svg = container.append('svg')
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .style('width', '100%')
+        .style('height', 'auto')
+        .style('max-width', '1000px');
+
+      // Mercator projection covering most of the world
+      const projection = d3.geoMercator()
+        .scale(120)
+        .translate([width / 2, height / 1.6]);
+
+      const path = d3.geoPath().projection(projection);
+
+      // Longitude, Latitude
+      const locations = [
+        { name: "Vietnam", coords: [108.5, 15.5], dx: 10, dy: -6 },
+        { name: "Cambodia", coords: [104.0, 11.5], dx: -68, dy: 12 },
+        { name: "Bangladesh", coords: [90.3563, 23.6850], dx: -75, dy: 4 },
+        { name: "South Africa", coords: [22.9375, -30.5595], dx: 8, dy: 4 },
+        { name: "China", coords: [104.1954, 35.8617], dx: 8, dy: 4 }
+      ];
+
+      d3.json('https://unpkg.com/world-atlas@2.0.2/countries-110m.json').then(world => {
+        const countries = topojson.feature(world, world.objects.countries);
+
+        // Draw boundaries
+        svg.append('g')
+          .selectAll('path')
+          .data(countries.features)
+          .enter().append('path')
+          .attr('d', path)
+          .attr('fill', '#e4e8f0') // Light grey surface
+          .attr('stroke', '#ffffff')
+          .attr('stroke-width', 0.8);
+
+        const pins = svg.append('g');
+
+        // Draw pins
+        locations.forEach(loc => {
+          const [x, y] = projection(loc.coords);
+
+          const group = pins.append('g')
+            .attr('transform', `translate(${x},${y})`);
+            
+          // Base dot
+          group.append('circle')
+            .attr('r', 5)
+            .attr('fill', '#C8942A') // Brand gold
+            .attr('stroke', '#ffffff')
+            .attr('stroke-width', 1);
+
+          // Animated radar ring
+          const ping = group.append('circle')
+            .attr('r', 5)
+            .attr('fill', 'none')
+            .attr('stroke', '#C8942A')
+            .attr('stroke-width', 1.5);
+            
+          function animatePing() {
+            ping.attr('r', 5)
+                .style('opacity', 1)
+                .transition()
+                .duration(2000)
+                .ease(d3.easeCircleOut)
+                .attr('r', 15)
+                .style('opacity', 0)
+                .on('end', animatePing);
+          }
+          animatePing();
+
+          // Country Label
+          group.append('text')
+            .attr('x', loc.dx !== undefined ? loc.dx : 8)
+            .attr('y', loc.dy !== undefined ? loc.dy : 4)
+            .attr('font-size', '12px')
+            .attr('font-family', 'Inter, sans-serif')
+            .attr('font-weight', '600')
+            .attr('fill', '#1B3A6E') // Corporate navy
+            .text(loc.name);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

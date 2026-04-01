@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Mijenro International | Reliable Garment Wholesale Manufacturing and Supply Chain Management." />
+  <title>Mijenro International | Garment Wholesale Partner</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=6" />
+
+  <!-- i18n Data Injection -->
+  <style>
+    /* Hide content until i18n loads to prevent flash of raw keys */
+    body.loading-i18n {
+      opacity: 0;
+    }
+
+    body.i18n-ready {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    .lang-btn.active {
+      color: var(--corporate-navy);
+      border-bottom: 2px solid var(--brand-gold);
+    }
+  </style>
+</head>
+
+<body class="loading-i18n">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="index.html" aria-label="Mijenro International home">
+          <img class="brand-logo-horizontal" src="assets/new_logo.png"
+            alt="Mijenro International LLC logo" />
+        </a>
+        <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+          <a class="nav-link active" href="index.html" data-i18n="nav.home">Home</a>
+          <a class="nav-link" href="about.html" data-i18n="nav.about">About</a>
+          <a class="nav-link" href="services.html" data-i18n="nav.services">Services</a>
+          <a class="nav-link" href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
+          <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
+          <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('en')" data-i18n="nav.lang_en">EN</button>
+            <button class="lang-btn" onclick="setLanguage('zh')" data-i18n="nav.lang_zh">中文</button>
+          </div>
+        </nav>
+        <a class="button button-primary button-small" href="contact.html" data-i18n="nav.cta">Connect With Us</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <div class="container hero-split">
+          <div class="hero-content">
+            <span class="eyebrow" data-i18n="home.heroEyebrow">Garment Wholesale Manufacturing</span>
+            <h1 data-i18n="home.heroTitle">Reliable Apparel Production at Scale</h1>
+            <p class="hero-subtitle" data-i18n="home.heroSubtitle" style="max-width: 600px;">You handle your brand. We handle the production. End‑to‑end garment manufacturing with strict quality control, predictable lead times, and clear communication for global B2B buyers.</p>
+
+            <div style="margin-top: 2rem; max-width: 100%;">
+              <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 0.75rem;"
+                data-i18n="home.certEyebrow">System Certifications</p>
+              <div class="marquee-wrapper">
+                <div class="marquee-content" style="animation-duration: 25s; gap: 3rem; padding-right: 3rem;">
+                  <span class="tech-badge">Walmart FCCA</span>
+                  <span class="tech-badge">Higg Index</span>
+                  <span class="tech-badge">WRAP Gold</span>
+                  <span class="tech-badge">amfori BSCI</span>
+                  <span class="tech-badge">Costco GMP</span>
+                  <span class="tech-badge">GRS Certificate</span>
+                </div>
+                <!-- Duplicate for seamless looping -->
+                <div class="marquee-content" style="animation-duration: 25s; gap: 3rem; padding-right: 3rem;"
+                  aria-hidden="true">
+                  <span class="tech-badge">Walmart FCCA</span>
+                  <span class="tech-badge">Higg Index</span>
+                  <span class="tech-badge">WRAP Gold</span>
+                  <span class="tech-badge">amfori BSCI</span>
+                  <span class="tech-badge">Costco GMP</span>
+                  <span class="tech-badge">GRS Certificate</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="services.html" class="button button-primary" data-i18n="nav.services">Services</a>
+              <a href="contact.html" class="button button-ghost" data-i18n="nav.cta">Connect With Us</a>
+            </div>
+
+            <div class="hero-metric-row display-flex" style="display:flex; gap: 2rem; margin-top: 2rem;">
+              <div class="metric">
+                <div class="stat-number" data-i18n="home.statCapacity">2.5M+</div>
+                <p data-i18n="home.statCapacityLabel">Monthly Unit Capacity</p>
+              </div>
+              <div class="metric">
+                <div class="stat-number" data-i18n="home.statLeadTime">30-60</div>
+                <p data-i18n="home.statLeadTimeLabel">Days Lead Time</p>
+              </div>
+              <div class="metric">
+                <div class="stat-number" data-i18n="home.statDefect">
+                  < 1%</div>
+                    <p data-i18n="home.statDefectLabel">Average Defect Rate</p>
+                </div>
+              </div>
+            </div>
+            <div class="hero-showcase">
+              <img src="assets/realistic_office.png" alt="Mijenro executives reviewing samples" />
+            </div>
+          </div>
+      </section>
+
+      <section
+        style="background-color: var(--surface-bg); padding: 2.5rem 0; border-bottom: 1px solid var(--border-subtle); overflow: hidden;">
+        <div class="container" style="text-align: center; max-width: 1200px;">
+          <h4
+            style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 3rem;"
+            data-i18n="home.trustedEyebrow">Trusted supply chain partner for leading global retailers:</h4>
+
+          <div class="marquee-wrapper">
+            <div class="marquee-content" style="animation-duration: 40s; gap: 5rem; padding-right: 5rem;">
+              <div class="retailer-logo retailer-marquee-logo r-walmart" style="font-size: 1.8rem;">WALMART</div>
+              <div class="retailer-logo retailer-marquee-logo r-costco" style="font-size: 1.8rem;">COSTCO</div>
+              <div class="retailer-logo retailer-marquee-logo r-target" style="font-size: 1.8rem;">TARGET</div>
+              <div class="retailer-logo retailer-marquee-logo r-marmaxx" style="font-size: 1.8rem;">MARMAXX</div>
+              <div class="retailer-logo retailer-marquee-logo r-ross" style="font-size: 2.1rem;">Ross</div>
+              <div class="retailer-logo retailer-marquee-logo r-burlington" style="font-size: 1.8rem;">Burlington</div>
+              <div class="retailer-logo retailer-marquee-logo r-fashionnova" style="font-size: 1.5rem;">FASHION NOVA
+              </div>
+              <div class="retailer-logo retailer-marquee-logo r-fivebelow" style="font-size: 1.9rem;">five<span
+                  style="font-size:1.4rem;">BELOW</span></div>
+            </div>
+            <!-- Duplicate for seamless looping -->
+            <div class="marquee-content" style="animation-duration: 40s; gap: 5rem; padding-right: 5rem;"
+              aria-hidden="true">
+              <div class="retailer-logo retailer-marquee-logo r-walmart" style="font-size: 1.8rem;">WALMART</div>
+              <div class="retailer-logo retailer-marquee-logo r-costco" style="font-size: 1.8rem;">COSTCO</div>
+              <div class="retailer-logo retailer-marquee-logo r-target" style="font-size: 1.8rem;">TARGET</div>
+              <div class="retailer-logo retailer-marquee-logo r-marmaxx" style="font-size: 1.8rem;">MARMAXX</div>
+              <div class="retailer-logo retailer-marquee-logo r-ross" style="font-size: 2.1rem;">Ross</div>
+              <div class="retailer-logo retailer-marquee-logo r-burlington" style="font-size: 1.8rem;">Burlington</div>
+              <div class="retailer-logo retailer-marquee-logo r-fashionnova" style="font-size: 1.5rem;">FASHION NOVA
+              </div>
+              <div class="retailer-logo retailer-marquee-logo r-fivebelow" style="font-size: 1.9rem;">five<span
+                  style="font-size:1.4rem;">BELOW</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="soft-surface reveal">
+        <div class="container highlight-panel">
+          <img src="assets/mijenro_supply_chain.png" alt="Modern garment supply chain operation" loading="lazy"
+            class="img-corporate-frame" />
+          <div class="highlight-content">
+            <span class="eyebrow" data-i18n="home.processEyebrow">Our Process</span>
+            <h2 data-i18n="home.processTitle">How We Streamline Your Supply Chain</h2>
+            <div class="process-list" style="margin-top: 2rem;">
+              <div class="process-step">
+                <span class="step-number">01</span>
+                <div>
+                  <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;" data-i18n="home.processStep1">Sourcing &
+                    Verification</h3>
+                  <p data-i18n="home.processStep1Desc">Strict incoming quality control for fabrics and trims before bulk
+                    cutting.</p>
+                </div>
+              </div>
+              <div class="process-step">
+                <span class="step-number">02</span>
+                <div>
+                  <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;" data-i18n="home.processStep2">Precision
+                    Manufacturing</h3>
+                  <p data-i18n="home.processStep2Desc">Line-balanced sewing operations with continuous in-process
+                    inspections.</p>
+                </div>
+              </div>
+              <div class="process-step">
+                <span class="step-number">03</span>
+                <div>
+                  <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;" data-i18n="home.processStep3">Final Audit &
+                    Logistics</h3>
+                  <p data-i18n="home.processStep3Desc">AQL standard inspections and organized dispatch to nominated
+                    forwarders.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Visualization Section -->
+      <section class="reveal">
+        <div class="container">
+          <div class="grid-2 align-items-center" style="align-items: center;">
+            <div>
+              <span class="eyebrow" data-i18n="home.chartEyebrow">Data-Driven Capabilities</span>
+              <h2 data-i18n="home.chartTitle">Monthly Production Capacity by Category</h2>
+              <p data-i18n="home.chartSubtitle">Scalable production lines tailored to core garment categories, ensuring
+                we meet strict delivery windows even during peak seasons.</p>
+              <div class="hero-panel" style="margin-top: 2rem;">
+                <img src="assets/mijenro_flowchart_hero.png" alt="End-to-end garment production process management"
+                  loading="lazy"
+                  style="width: 100%; border-radius: var(--radius-m); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);" />
+              </div>
+            </div>
+            <div class="card flowchart-container" style="padding: 2rem;">
+              <div class="production-flowchart">
+                <div class="flow-step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4 data-i18n="home.flowStep1Title">1. Material Sourcing</h4>
+                    <p data-i18n="home.flowStep1Desc">Fabric & trim validation with certified mills.</p>
+                  </div>
+                </div>
+                <div class="flow-step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4 data-i18n="home.flowStep2Title">2. Prototyping</h4>
+                    <p data-i18n="home.flowStep2Desc">Fit approvals and tech pack translation.</p>
+                  </div>
+                </div>
+                <div class="flow-step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4 data-i18n="home.flowStep3Title">3. Bulk Production</h4>
+                    <p data-i18n="home.flowStep3Desc">Precision cutting, sewing, and in-line QA.</p>
+                  </div>
+                </div>
+                <div class="flow-step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4 data-i18n="home.flowStep4Title">4. Final Inspection</h4>
+                    <p data-i18n="home.flowStep4Desc">AQL 2.5 standard pre-shipment quality audit.</p>
+                  </div>
+                </div>
+                <div class="flow-step">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4 data-i18n="home.flowStep5Title">5. Global Logistics</h4>
+                    <p data-i18n="home.flowStep5Desc">Freight management and customs clearance.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <section class="reveal">
+        <div class="container cta-banner">
+          <div>
+            <h2 class="h2" data-i18n="home.ctaTitle">Ready to discuss your production needs?</h2>
+            <p data-i18n="home.ctaDesc">Our team responds within 24 hours with capacity details and pricing guidance.
+            </p>
+          </div>
+          <a class="button button-primary" href="contact.html" data-i18n="home.ctaButton">Contact Sales</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h2 style="font-size: 2rem; letter-spacing: 0.1em; color: var(--surface-bg); margin-bottom: 1rem; font-weight: 800;">MIJENRO</h2>
+            <p data-i18n="footer.desc">Built for long-term wholesale relationships in the garment industry.</p>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.company">Company</h4>
+            <ul>
+              <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+              <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+              <li><a href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.partnership">Partnership</h4>
+            <ul>
+              <li data-i18n="home.processStep1">Sourcing & Verification</li>
+              <li data-i18n="home.processStep2">Precision Manufacturing</li>
+              <li data-i18n="home.processStep3">Final Audit & Logistics</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.contact">Contact</h4>
+            <ul>
+              <li>contact@mijenro.com</li>
+              <li>+1  917-239-5702</li>
+              <li>New York, USA</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-year></span> <span data-i18n="footer.rights">Mijenro International. All rights
+              reserved.</span></span>
+          <span data-i18n="footer.legal">General Company Introduction Website</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Main Script (i18n + Logic) -->
+  <script src="script.js?v=6"></script>
+</body>
+
+</html>
