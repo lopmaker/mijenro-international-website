@@ -6,8 +6,13 @@ let translations = {};
 
 async function loadLanguage(lang) {
   try {
-    const response = await fetch(`locales/${lang}.json`);
-    translations = await response.json();
+    // Use embedded I18N_DATA (from i18n-data.js) if available, otherwise try fetch
+    if (typeof I18N_DATA !== 'undefined' && I18N_DATA[lang]) {
+      translations = I18N_DATA[lang];
+    } else {
+      const response = await fetch(`locales/${lang}.json`);
+      translations = await response.json();
+    }
     applyTranslations();
     document.body.classList.remove('loading-i18n');
     document.body.classList.add('i18n-ready');
@@ -17,7 +22,7 @@ async function loadLanguage(lang) {
       btn.classList.remove('active');
     });
 
-    // Find button matching this lang (hacky but works for this demo)
+    // Find button matching this lang
     const activeBtn = Array.from(document.querySelectorAll('.lang-btn')).find(b =>
       b.getAttribute('onclick')?.includes(`'${lang}'`)
     );
