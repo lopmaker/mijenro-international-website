@@ -43,7 +43,7 @@
     "ctaTitle": "Ready to discuss your production needs?",
     "ctaDesc": "Our team responds within 24 hours with capacity details and pricing guidance.",
     "ctaButton": "Contact Sales",
-    "certEyebrow": "System Certifications",
+    "certEyebrow": "Our Supply Chain Certifications",
     "trustedEyebrow": "Trusted supply chain partner for leading global retailers:"
   },
   "about": {
@@ -68,9 +68,9 @@
     "value3Title": "Operational Transparency",
     "value3Desc": "We eliminate the \"black box\" of overseas manufacturing. By combining individual program accountability with structured progress reporting, we ensure you have complete visibility into your supply chain at every stage.",
     "ctaTitle": "Need a Stronger Vendor Narrative for Your Buying Team?",
-    "ctaSubtitle": "We can share a concise company deck and capability profile aligned to your target garment category.",
+    "ctaSubtitle": "We can share a concise company deck and capability profile for your target category.",
     "ctaButton": "Request Introduction Pack",
-    "certEyebrow": "System Certifications",
+    "certEyebrow": "Our Supply Chain Certifications",
     "trustedEyebrow": "Trusted supply chain partner for leading global retailers:"
   },
   "capabilities": {
@@ -78,7 +78,7 @@
     "heroTitle": "Complete Program Support for Garment Wholesale Growth",
     "heroSubtitle": "Mijenro combines sourcing intelligence, product development, controlled production, and logistics management to help buyers scale without compromising quality.",
     "statMerch": "45+",
-    "statMerchLabel": "Dedicated merchandisers",
+    "statMerchLabel": "Dedicated production merchandisers",
     "statCat": "4",
     "statCatLabel": "Primary garment categories",
     "statResponse": "24h",
@@ -114,7 +114,7 @@
     "ctaTitle": "Need a Capability Match Against Your Product Plan?",
     "ctaSubtitle": "Send your target category and expected MOQ. We will suggest a partnership model that fits.",
     "ctaButton": "Discuss Program",
-    "supplyChainTitle": "Supply Chain",
+    "supplyChainTitle": "Supply Chain Overview",
     "countryVietnam": "Vietnam",
     "countryCambodia": "Cambodia",
     "countryBangladesh": "Bangladesh",
@@ -237,7 +237,7 @@
     "submitButton": "Submit Inquiry",
     "block1Title": "Business Development",
     "block1Line1": "Email: contact@mijenro.com",
-    "block1Line2": "Phone: +1  917-239-5702",
+
     "block2Title": "Office Hours",
     "block2Line1": "Monday to Friday",
     "block2Line2": "09:00-18:00 EST",

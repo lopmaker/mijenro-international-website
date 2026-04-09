@@ -870,24 +870,25 @@ footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
 }
 
 .footer-brand .brand-logo-horizontal {
   height: auto;
-  max-width: 160px;
+  max-width: 280px;
   max-height: 80px;
   margin-bottom: 1.5rem;
-  background-color: #ffffff;
-  padding: 0.5rem;
-  border-radius: 8px;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
   box-shadow: none;
   display: block;
   object-fit: contain;
   mix-blend-mode: normal;
-  filter: none;
+  /* Invert all colors and make it crisp white to flawlessly contrast the dark footer */
+  filter: brightness(0) invert(1);
 }
 
 .footer-col h4,

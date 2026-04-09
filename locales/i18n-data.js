@@ -1,5 +1,4 @@
-// Auto-generated i18n data
-const I18N_DATA = {
+var I18N_DATA = {
   "en": {
     "nav": {
       "home": "Home",
@@ -45,7 +44,7 @@ const I18N_DATA = {
       "ctaTitle": "Ready to discuss your production needs?",
       "ctaDesc": "Our team responds within 24 hours with capacity details and pricing guidance.",
       "ctaButton": "Contact Sales",
-      "certEyebrow": "System Certifications",
+      "certEyebrow": "Our Supply Chain Certifications",
       "trustedEyebrow": "Trusted supply chain partner for leading global retailers:"
     },
     "about": {
@@ -70,9 +69,9 @@ const I18N_DATA = {
       "value3Title": "Operational Transparency",
       "value3Desc": "We eliminate the \"black box\" of overseas manufacturing. By combining individual program accountability with structured progress reporting, we ensure you have complete visibility into your supply chain at every stage.",
       "ctaTitle": "Need a Stronger Vendor Narrative for Your Buying Team?",
-      "ctaSubtitle": "We can share a concise company deck and capability profile aligned to your target garment category.",
+      "ctaSubtitle": "We can share a concise company deck and capability profile for your target category.",
       "ctaButton": "Request Introduction Pack",
-      "certEyebrow": "System Certifications",
+      "certEyebrow": "Our Supply Chain Certifications",
       "trustedEyebrow": "Trusted supply chain partner for leading global retailers:"
     },
     "capabilities": {
@@ -80,7 +79,7 @@ const I18N_DATA = {
       "heroTitle": "Complete Program Support for Garment Wholesale Growth",
       "heroSubtitle": "Mijenro combines sourcing intelligence, product development, controlled production, and logistics management to help buyers scale without compromising quality.",
       "statMerch": "45+",
-      "statMerchLabel": "Dedicated merchandisers",
+      "statMerchLabel": "Dedicated production merchandisers",
       "statCat": "4",
       "statCatLabel": "Primary garment categories",
       "statResponse": "24h",
@@ -116,7 +115,7 @@ const I18N_DATA = {
       "ctaTitle": "Need a Capability Match Against Your Product Plan?",
       "ctaSubtitle": "Send your target category and expected MOQ. We will suggest a partnership model that fits.",
       "ctaButton": "Discuss Program",
-      "supplyChainTitle": "Supply Chain",
+      "supplyChainTitle": "Supply Chain Overview",
       "countryVietnam": "Vietnam",
       "countryCambodia": "Cambodia",
       "countryBangladesh": "Bangladesh",
@@ -239,7 +238,6 @@ const I18N_DATA = {
       "submitButton": "Submit Inquiry",
       "block1Title": "Business Development",
       "block1Line1": "Email: contact@mijenro.com",
-      "block1Line2": "Phone: +1  917-239-5702",
       "block2Title": "Office Hours",
       "block2Line1": "Monday to Friday",
       "block2Line2": "09:00-18:00 EST",
@@ -316,7 +314,7 @@ const I18N_DATA = {
       "ctaTitle": "准备好讨论您的生产需求了吗？",
       "ctaDesc": "我们的团队将在24小时内回复产能详情以及价格预估。",
       "ctaButton": "联系销售团队",
-      "certEyebrow": "高级系统认证",
+      "certEyebrow": "我们的供应链认证",
       "trustedEyebrow": "全球领先零售商的信赖供应链伙伴："
     },
     "about": {
@@ -343,7 +341,7 @@ const I18N_DATA = {
       "ctaTitle": "需要为您的采购团队提供更强有力的供应商简介？",
       "ctaSubtitle": "我们可以分享一份简明的公司演示文稿以及与您目标服装类别一致的产能简介。",
       "ctaButton": "索取介绍资料",
-      "certEyebrow": "高级系统认证",
+      "certEyebrow": "我们的供应链认证",
       "trustedEyebrow": "全球领先零售商的信赖供应链伙伴："
     },
     "capabilities": {
@@ -510,7 +508,6 @@ const I18N_DATA = {
       "submitButton": "提交意向",
       "block1Title": "业务发展部",
       "block1Line1": "邮箱: contact@mijenro.com",
-      "block1Line2": "电话: +1  917-239-5702",
       "block2Title": "办公时间",
       "block2Line1": "周一至周五",
       "block2Line2": "美国东部时间(EST) 09:00-18:00",

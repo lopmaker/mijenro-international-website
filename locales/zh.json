@@ -43,7 +43,7 @@
         "ctaTitle": "准备好讨论您的生产需求了吗？",
         "ctaDesc": "我们的团队将在24小时内回复产能详情以及价格预估。",
         "ctaButton": "联系销售团队",
-        "certEyebrow": "高级系统认证",
+        "certEyebrow": "我们的供应链认证",
         "trustedEyebrow": "全球领先零售商的信赖供应链伙伴："
     },
     "about": {
@@ -70,7 +70,7 @@
         "ctaTitle": "需要为您的采购团队提供更强有力的供应商简介？",
         "ctaSubtitle": "我们可以分享一份简明的公司演示文稿以及与您目标服装类别一致的产能简介。",
         "ctaButton": "索取介绍资料",
-        "certEyebrow": "高级系统认证",
+        "certEyebrow": "我们的供应链认证",
         "trustedEyebrow": "全球领先零售商的信赖供应链伙伴："
     },
     "capabilities": {
@@ -237,7 +237,7 @@
         "submitButton": "提交意向",
         "block1Title": "业务发展部",
         "block1Line1": "邮箱: contact@mijenro.com",
-        "block1Line2": "电话: +1  917-239-5702",
+
         "block2Title": "办公时间",
         "block2Line1": "周一至周五",
         "block2Line2": "美国东部时间(EST) 09:00-18:00",
