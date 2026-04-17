@@ -7,6 +7,30 @@
   <meta name="description"
     content="Contact Mijenro International to discuss garment wholesale, OEM, and ODM partnership opportunities." />
   <title>Contact | Mijenro International</title>
+
+  <link rel="icon" href="assets/new_logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/new_logo.png" />
+  <meta name="theme-color" content="#1A2B4C" />
+
+  <link rel="canonical" href="https://mijenro.com/contact.html" />
+  <link rel="alternate" hreflang="en" href="https://mijenro.com/contact.html" />
+  <link rel="alternate" hreflang="zh" href="https://mijenro.com/contact.html?lang=zh" />
+  <link rel="alternate" hreflang="x-default" href="https://mijenro.com/contact.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mijenro International" />
+  <meta property="og:title" content="Contact | Mijenro International" />
+  <meta property="og:description" content="Contact Mijenro International to discuss garment wholesale, OEM, and ODM partnership opportunities." />
+  <meta property="og:url" content="https://mijenro.com/contact.html" />
+  <meta property="og:image" content="https://mijenro.com/assets/new_logo.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="zh_CN" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact | Mijenro International" />
+  <meta name="twitter:description" content="Contact Mijenro International to discuss garment wholesale, OEM, and ODM partnership opportunities." />
+  <meta name="twitter:image" content="https://mijenro.com/assets/new_logo.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -51,6 +75,7 @@
 </head>
 
 <body class="loading-i18n">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="site-shell">
     <header class="site-header">
       <div class="container header-row">
@@ -74,7 +99,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero reveal">
         <div class="container hero-grid"
           style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
@@ -101,21 +126,24 @@
             <h2 class="h2" data-i18n="contact.formTitle">Partnership Inquiry Form</h2>
             <p data-i18n="contact.formSubtitle">Please provide core requirements so we can align the right merchandising
               and production resources.</p>
-            <form>
+            <form id="inquiry-form" action="mailto:contact@mijenro.com" method="POST" enctype="text/plain">
               <div class="form-grid">
                 <div class="field">
                   <label for="company" data-i18n="contact.labelCompany">Company Name</label>
-                  <input id="company" name="company" type="text" data-i18n="contact.placeholderCompany"
+                  <input id="company" name="company" type="text" required minlength="2" maxlength="120"
+                    autocomplete="organization" data-i18n="contact.placeholderCompany"
                     data-i18n-attr="placeholder" placeholder="Your company" />
                 </div>
                 <div class="field">
                   <label for="name" data-i18n="contact.labelName">Contact Person</label>
-                  <input id="name" name="name" type="text" data-i18n="contact.placeholderName"
+                  <input id="name" name="name" type="text" required minlength="2" maxlength="80"
+                    autocomplete="name" data-i18n="contact.placeholderName"
                     data-i18n-attr="placeholder" placeholder="Your name" />
                 </div>
                 <div class="field">
                   <label for="email" data-i18n="contact.labelEmail">Business Email</label>
-                  <input id="email" name="email" type="email" data-i18n="contact.placeholderEmail"
+                  <input id="email" name="email" type="email" required maxlength="150"
+                    autocomplete="email" data-i18n="contact.placeholderEmail"
                     data-i18n-attr="placeholder" placeholder="name@company.com" />
                 </div>
                 <div class="field">
@@ -132,17 +160,20 @@
                 </div>
                 <div class="field">
                   <label for="category" data-i18n="contact.labelCategory">Main Product Category</label>
-                  <input id="category" name="category" type="text" data-i18n="contact.placeholderCategory"
+                  <input id="category" name="category" type="text" maxlength="150"
+                    data-i18n="contact.placeholderCategory"
                     data-i18n-attr="placeholder" placeholder="e.g. knit tops, uniforms" />
                 </div>
                 <div class="field">
                   <label for="volume" data-i18n="contact.labelVolume">Estimated Order Volume</label>
-                  <input id="volume" name="volume" type="text" data-i18n="contact.placeholderVolume"
+                  <input id="volume" name="volume" type="text" maxlength="80"
+                    data-i18n="contact.placeholderVolume"
                     data-i18n-attr="placeholder" placeholder="e.g. 30,000 pcs / month" />
                 </div>
                 <div class="field full">
                   <label for="message" data-i18n="contact.labelNotes">Project Notes</label>
-                  <textarea id="message" name="message" data-i18n="contact.placeholderNotes"
+                  <textarea id="message" name="message" required minlength="10" maxlength="2000" rows="5"
+                    data-i18n="contact.placeholderNotes"
                     data-i18n-attr="placeholder"
                     placeholder="Share lead-time expectations, target cost, and quality requirements."></textarea>
                 </div>
@@ -243,8 +274,8 @@
       </div>
     </footer>
   </div>
-  <script src="locales/i18n-data.js"></script>
-  <script src="script.js?v=7"></script>
+  <script src="locales/i18n-data.js" defer></script>
+  <script src="script.js?v=8" defer></script>
 </body>
 
 </html>

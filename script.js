@@ -88,22 +88,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleButton = document.querySelector('.mobile-toggle');
   const siteNav = document.getElementById('site-nav');
 
-  if (toggleButton && siteNav) {
-    toggleButton.addEventListener('click', () => {
-      const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
-      toggleButton.setAttribute('aria-expanded', !isExpanded);
-      siteNav.classList.toggle('open');
+  if (!toggleButton || !siteNav) return;
 
-      // Prevent body scroll when menu is open
-      if (!isExpanded) {
-        document.body.style.overflow = 'hidden';
-        toggleButton.textContent = 'Close';
-      } else {
-        document.body.style.overflow = '';
-        toggleButton.textContent = 'Menu';
-      }
+  const closeMenu = () => {
+    toggleButton.setAttribute('aria-expanded', 'false');
+    siteNav.classList.remove('open');
+    document.body.style.overflow = '';
+    toggleButton.textContent = 'Menu';
+  };
+
+  const openMenu = () => {
+    toggleButton.setAttribute('aria-expanded', 'true');
+    siteNav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    toggleButton.textContent = 'Close';
+  };
+
+  toggleButton.addEventListener('click', () => {
+    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) closeMenu(); else openMenu();
+  });
+
+  // Close menu when a nav link is activated (mobile UX)
+  siteNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (toggleButton.getAttribute('aria-expanded') === 'true') closeMenu();
     });
-  }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggleButton.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      toggleButton.focus();
+    }
+  });
+});
+
+// --- Contact Form: Lightweight Client-Side Validation ---
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('inquiry-form');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      form.reportValidity();
+      return;
+    }
+    // Form falls through to the action (mailto: fallback until backend is wired).
+  });
 });
 
 // --- Sticky Header Effect ---

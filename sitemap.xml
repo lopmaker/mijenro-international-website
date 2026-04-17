@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mijenro.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mijenro.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mijenro.com/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mijenro.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mijenro.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mijenro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mijenro.com/about.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mijenro.com/about.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mijenro.com/services.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mijenro.com/services.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mijenro.com/services.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mijenro.com/services.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mijenro.com/sustainability.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mijenro.com/sustainability.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mijenro.com/sustainability.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mijenro.com/sustainability.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mijenro.com/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mijenro.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mijenro.com/contact.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mijenro.com/contact.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

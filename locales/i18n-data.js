@@ -260,6 +260,7 @@ var I18N_DATA = {
       "faq3A": "Quality assurance at Mijenro is proactive, not reactive. We perform early-stage inspections and notify you immediately if any deviations occur. Our partners trust us because we prioritize early problem-solving over late-stage excuses."
     },
     "footer": {
+      "desc": "Built for long-term wholesale relationships in the garment industry.",
       "descHome": "Built for long-term wholesale relationships in the garment industry.",
       "descAbout": "Ready to build practical, long-term partnership models in garment wholesale.",
       "company": "Company",
@@ -530,6 +531,7 @@ var I18N_DATA = {
       "faq3A": "美杰合的质量保证是主动而非被动的。我们执行早期检验，若出现任何偏差会立即通知您。合作伙伴信任我们，因为我们坚持优先解决早期问题，绝不找后期的借口。"
     },
     "footer": {
+      "desc": "专为服装行业的长期批发关系而建立。",
       "descHome": "专为服装行业的长期批发关系而建立。",
       "descAbout": "准备好在服装批发领域建立务实、长期的合作模式。",
       "company": "公司介绍",

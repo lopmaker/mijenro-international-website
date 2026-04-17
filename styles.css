@@ -255,6 +255,29 @@ section {
 }
 
 /* =========================================
+   Accessibility: Skip Link
+   ========================================= */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  background: var(--corporate-navy);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 6px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+  outline: 3px solid var(--corporate-gold, #E3A65E);
+  outline-offset: 2px;
+}
+
+/* =========================================
    Components: Structured Navigation
    ========================================= */
 
