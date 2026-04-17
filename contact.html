@@ -126,7 +126,12 @@
             <h2 class="h2" data-i18n="contact.formTitle">Partnership Inquiry Form</h2>
             <p data-i18n="contact.formSubtitle">Please provide core requirements so we can align the right merchandising
               and production resources.</p>
-            <form id="inquiry-form" action="mailto:contact@mijenro.com" method="POST" enctype="text/plain">
+            <form id="inquiry-form" action="/api/contact" method="POST" novalidate>
+              <!-- Honeypot: hidden from humans, filled by bots -->
+              <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
+                <label for="website">Website</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
               <div class="form-grid">
                 <div class="field">
                   <label for="company" data-i18n="contact.labelCompany">Company Name</label>
@@ -182,6 +187,7 @@
                 <button class="button button-primary" type="submit" data-i18n="contact.submitButton">Submit
                   Inquiry</button>
               </p>
+              <p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
             </form>
           </article>
 

@@ -255,6 +255,36 @@ section {
 }
 
 /* =========================================
+   Form Status (contact form)
+   ========================================= */
+
+.form-status {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.form-status.is-sending {
+  background: #F4F6F9;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.form-status.is-success {
+  background: #E8F4EC;
+  color: #1E6A3B;
+  border: 1px solid #BFE0CC;
+}
+
+.form-status.is-error {
+  background: #FCEBEB;
+  color: #9B2020;
+  border: 1px solid #F1C7C7;
+}
+
+/* =========================================
    Accessibility: Skip Link
    ========================================= */
 

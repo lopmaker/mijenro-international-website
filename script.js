@@ -125,18 +125,56 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// --- Contact Form: Lightweight Client-Side Validation ---
+// --- Contact Form: Async submit via /api/contact ---
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('inquiry-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  const statusEl = document.getElementById('form-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  const setStatus = (stateClass, messageKey, fallback) => {
+    if (!statusEl) return;
+    statusEl.hidden = false;
+    statusEl.classList.remove('is-sending', 'is-success', 'is-error');
+    statusEl.classList.add(stateClass);
+    const fromI18n = translations?.formStatus?.[messageKey];
+    statusEl.textContent = fromI18n || fallback;
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
     if (!form.checkValidity()) {
-      e.preventDefault();
       form.reportValidity();
       return;
     }
-    // Form falls through to the action (mailto: fallback until backend is wired).
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (submitBtn) submitBtn.disabled = true;
+    setStatus('is-sending', 'sending', 'Sending your inquiry…');
+
+    try {
+      const resp = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const payload = await resp.json().catch(() => ({}));
+      if (resp.ok && payload.ok) {
+        setStatus('is-success', 'success',
+          'Thanks — your inquiry was sent. We’ll reply within 24 hours.');
+        form.reset();
+      } else {
+        setStatus('is-error', 'error',
+          payload.error || 'Something went wrong. Please try again or email contact@mijenro.com.');
+      }
+    } catch (err) {
+      console.error('Contact form submit failed:', err);
+      setStatus('is-error', 'error',
+        'Something went wrong. Please try again or email contact@mijenro.com.');
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 });
 

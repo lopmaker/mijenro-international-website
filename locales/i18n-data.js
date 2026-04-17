@@ -75,7 +75,7 @@ var I18N_DATA = {
       "trustedEyebrow": "Trusted supply chain partner for leading global retailers:"
     },
     "capabilities": {
-      "heroEyebrow": "Capabilities",
+      "heroEyebrow": "Services",
       "heroTitle": "Complete Program Support for Garment Wholesale Growth",
       "heroSubtitle": "Mijenro combines sourcing intelligence, product development, controlled production, and logistics management to help buyers scale without compromising quality.",
       "statMerch": "45+",
@@ -112,7 +112,7 @@ var I18N_DATA = {
       "step2Desc": "No false promises. If we can’t deliver, we tell you upfront. If we commit, we own the process - delivering development, production, and shipping windows with ironclad checkpoints at every step.",
       "step3Title": "Continuous Progress Tracking",
       "step3Desc": "Real-time production tracking from cutting table to shipping container. Consider us an extension of your team - zero chasing, total clarity.",
-      "ctaTitle": "Need a Capability Match Against Your Product Plan?",
+      "ctaTitle": "Need the Right Service Mix for Your Product Plan?",
       "ctaSubtitle": "Send your target category and expected MOQ. We will suggest a partnership model that fits.",
       "ctaButton": "Discuss Program",
       "supplyChainTitle": "Supply Chain Overview",
@@ -268,6 +268,11 @@ var I18N_DATA = {
       "contact": "Contact",
       "rights": "Mijenro International. All rights reserved.",
       "legal": "General Company Introduction Website"
+    },
+    "formStatus": {
+      "sending": "Sending your inquiry…",
+      "success": "Thanks — your inquiry was sent. We’ll reply within 24 hours.",
+      "error": "Something went wrong. Please try again or email contact@mijenro.com."
     }
   },
   "zh": {
@@ -346,7 +351,7 @@ var I18N_DATA = {
       "trustedEyebrow": "全球领先零售商的信赖供应链伙伴："
     },
     "capabilities": {
-      "heroEyebrow": "业务能力",
+      "heroEyebrow": "核心服务",
       "heroTitle": "为服装批发增长提供完整的项目支持",
       "heroSubtitle": "美杰合整合了采购智能、产品开发、受控生产和物流管理，帮助买家在不牺牲质量的前提下扩大规模。",
       "statMerch": "45+",
@@ -383,7 +388,7 @@ var I18N_DATA = {
       "step2Desc": "不作虚假承诺。做不到的我们提前说明。一旦承诺，我们便全程负责——为您提供完整的开发、生产和出货时间窗，并在每一步设立严格的检查点。",
       "step3Title": "持续进度跟踪",
       "step3Desc": "从裁剪台到集装箱的实时生产跟踪。把我们当成您团队的延伸——无需催促，全程透明。",
-      "ctaTitle": "需要符合您产品计划的产能匹配吗？",
+      "ctaTitle": "想为您的产品计划匹配合适的服务吗？",
       "ctaSubtitle": "请发送您的目标类别及预期起订量。我们会推荐合适的合作模式。",
       "ctaButton": "探讨项目",
       "supplyChainTitle": "供应链",
@@ -539,6 +544,11 @@ var I18N_DATA = {
       "contact": "联系我们",
       "rights": "美杰合国际公司 保留所有权利。",
       "legal": "综合性公司介绍网站"
+    },
+    "formStatus": {
+      "sending": "正在发送您的询盘…",
+      "success": "已收到，感谢您！我们将在 24 小时内回复。",
+      "error": "提交失败。请重试，或发送邮件至 contact@mijenro.com。"
     }
   }
 };

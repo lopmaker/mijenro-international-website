@@ -1,0 +1,13 @@
+{
+  "name": "mijenro-international-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mijenro International marketing site + contact endpoint.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

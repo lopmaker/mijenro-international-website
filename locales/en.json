@@ -74,7 +74,7 @@
     "trustedEyebrow": "Trusted supply chain partner for leading global retailers:"
   },
   "capabilities": {
-    "heroEyebrow": "Capabilities",
+    "heroEyebrow": "Services",
     "heroTitle": "Complete Program Support for Garment Wholesale Growth",
     "heroSubtitle": "Mijenro combines sourcing intelligence, product development, controlled production, and logistics management to help buyers scale without compromising quality.",
     "statMerch": "45+",
@@ -111,7 +111,7 @@
     "step2Desc": "No false promises. If we can’t deliver, we tell you upfront. If we commit, we own the process - delivering development, production, and shipping windows with ironclad checkpoints at every step.",
     "step3Title": "Continuous Progress Tracking",
     "step3Desc": "Real-time production tracking from cutting table to shipping container. Consider us an extension of your team - zero chasing, total clarity.",
-    "ctaTitle": "Need a Capability Match Against Your Product Plan?",
+    "ctaTitle": "Need the Right Service Mix for Your Product Plan?",
     "ctaSubtitle": "Send your target category and expected MOQ. We will suggest a partnership model that fits.",
     "ctaButton": "Discuss Program",
     "supplyChainTitle": "Supply Chain Overview",
@@ -268,5 +268,10 @@
     "contact": "Contact",
     "rights": "Mijenro International. All rights reserved.",
     "legal": "General Company Introduction Website"
+  },
+  "formStatus": {
+    "sending": "Sending your inquiry…",
+    "success": "Thanks — your inquiry was sent. We’ll reply within 24 hours.",
+    "error": "Something went wrong. Please try again or email contact@mijenro.com."
   }
 }
