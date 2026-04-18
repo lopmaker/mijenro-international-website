@@ -86,7 +86,7 @@ function buildConfirmationEmail({ name, company, market, category, volume, messa
 
         <tr><td style="padding:24px 48px 8px;color:#1A1A1A;font-size:16px;line-height:1.75;">
           <p style="margin:0 0 16px;">We have received your partnership inquiry. A member of our merchandising team will review the details and respond within <strong style="color:#1A2B4C;">24 business hours</strong> with suggested next steps.</p>
-          <p style="margin:0;color:#5C677D;font-size:14px;line-height:1.7;">If your request is time-sensitive, simply reply to this email — it routes directly to our team.</p>
+          <p style="margin:0;color:#5C677D;font-size:14px;line-height:1.7;">If your request is time-sensitive, please email us directly at <a href="mailto:contact@mijenro.com" style="color:#1A2B4C;font-weight:600;text-decoration:none;border-bottom:1px solid #E3A65E;">contact@mijenro.com</a>.</p>
         </td></tr>
 
         ${rows.length || messageBlock ? `
@@ -104,7 +104,7 @@ function buildConfirmationEmail({ name, company, market, category, volume, messa
         <tr><td style="padding:28px 48px 8px;color:#5C677D;font-size:14px;line-height:1.8;">
           <div style="font-family:Georgia,'Noto Serif SC',serif;color:#1A2B4C;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">感谢您的来信</div>
           <p style="margin:0 0 8px;color:#1A1A1A;">${escapeHtml(firstName)} 您好，</p>
-          <p style="margin:0;">我们已收到您的合作咨询，相关团队将在 24 小时内回复您，并提出具体的合作建议和下一步安排。如需加急，直接回复此邮件即可。</p>
+          <p style="margin:0;">我们已收到您的合作咨询，相关团队将在 24 小时内回复您，并提出具体的合作建议和下一步安排。如需加急，请发送邮件至 <a href="mailto:contact@mijenro.com" style="color:#1A2B4C;font-weight:600;text-decoration:none;border-bottom:1px solid #E3A65E;">contact@mijenro.com</a>。</p>
         </td></tr>
 
         <tr><td style="padding:36px 48px 44px;">
@@ -144,7 +144,7 @@ function buildConfirmationEmail({ name, company, market, category, volume, messa
     message ? `Your notes:` : '',
     message ? message : '',
     ``,
-    `If your request is time-sensitive, simply reply to this email.`,
+    `If your request is time-sensitive, please email us at contact@mijenro.com.`,
     ``,
     `— The Mijenro Partnership Team`,
     ``,
@@ -230,7 +230,6 @@ app.post('/api/contact', async (req, res) => {
     resend.emails.send({
       from: FROM_EMAIL,
       to: [email],
-      replyTo: TO_EMAIL,
       subject: 'We\'ve received your inquiry — Mijenro International',
       html: confirmation.html,
       text: confirmation.text,
