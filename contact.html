@@ -158,30 +158,81 @@
               </p>
             </form>
 
+            <div id="form-modal" role="dialog" aria-modal="true" aria-labelledby="form-modal-title" style="display:none;position:fixed;inset:0;background:rgba(20,41,69,0.55);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+              <div style="background:#fff;max-width:480px;width:100%;padding:2.5rem 2rem;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,0.25);text-align:center;font-family:inherit;">
+                <div id="form-modal-icon" style="font-size:2.5rem;line-height:1;margin-bottom:1rem;"></div>
+                <h3 id="form-modal-title" style="margin:0 0 0.75rem;color:#142945;font-size:1.25rem;"></h3>
+                <p id="form-modal-body" style="margin:0 0 1.5rem;color:#444;line-height:1.6;"></p>
+                <button type="button" id="form-modal-close" class="button button-primary" style="min-width:140px;">OK</button>
+              </div>
+            </div>
+
             <script>
               (function () {
                 const form = document.getElementById('contact-form');
                 const status = document.getElementById('form-status');
+                const modal = document.getElementById('form-modal');
+                const modalIcon = document.getElementById('form-modal-icon');
+                const modalTitle = document.getElementById('form-modal-title');
+                const modalBody = document.getElementById('form-modal-body');
+                const modalClose = document.getElementById('form-modal-close');
                 if (!form) return;
 
                 const MSG = {
                   en: {
                     sending: 'Sending…',
-                    ok: 'Thank you — your inquiry has been received. We will respond within 24 hours.',
-                    err: 'Could not send. Please try again or email contact@mijenro.com.',
-                    required: 'Please provide your name and a valid business email.'
+                    okTitle: 'Inquiry received',
+                    okBody: 'Thank you — we have received your inquiry and will respond within 24 hours.',
+                    errTitle: 'Could not send',
+                    errBody: 'Something went wrong. Please try again, or email contact@mijenro.com directly.',
+                    requiredTitle: 'Missing information',
+                    requiredBody: 'Please provide your name and a valid business email.',
+                    close: 'OK'
                   },
                   zh: {
                     sending: '发送中…',
-                    ok: '已收到您的咨询，我们会在 24 小时内回复。',
-                    err: '提交失败，请稍后再试或直接邮件至 contact@mijenro.com。',
-                    required: '请填写姓名和有效的公司邮箱。'
+                    okTitle: '已收到您的咨询',
+                    okBody: '感谢您的来信，我们将在 24 小时内回复。',
+                    errTitle: '提交失败',
+                    errBody: '发送出现问题，请稍后再试，或直接发送邮件至 contact@mijenro.com。',
+                    requiredTitle: '信息不完整',
+                    requiredBody: '请填写姓名和有效的公司邮箱。',
+                    close: '好的'
                   }
                 };
-                function t(k) {
-                  const lang = (localStorage.getItem('mijenro_lang') || 'en').startsWith('zh') ? 'zh' : 'en';
-                  return (MSG[lang] || MSG.en)[k];
+                function lang() {
+                  return (localStorage.getItem('mijenro_lang') || 'en').startsWith('zh') ? 'zh' : 'en';
                 }
+                function t(k) { return (MSG[lang()] || MSG.en)[k]; }
+
+                function showModal(kind, titleKey, bodyKey) {
+                  const ok = kind === 'ok';
+                  modalIcon.textContent = ok ? '✓' : '!';
+                  modalIcon.style.color = ok ? '#166534' : '#b00';
+                  modalIcon.style.border = '2px solid ' + (ok ? '#166534' : '#b00');
+                  modalIcon.style.width = '3.5rem';
+                  modalIcon.style.height = '3.5rem';
+                  modalIcon.style.borderRadius = '50%';
+                  modalIcon.style.display = 'inline-flex';
+                  modalIcon.style.alignItems = 'center';
+                  modalIcon.style.justifyContent = 'center';
+                  modalIcon.style.fontWeight = '600';
+                  modalTitle.textContent = t(titleKey);
+                  modalBody.textContent = t(bodyKey);
+                  modalClose.textContent = t('close');
+                  modal.style.display = 'flex';
+                  document.body.style.overflow = 'hidden';
+                  setTimeout(() => modalClose.focus(), 50);
+                }
+                function hideModal() {
+                  modal.style.display = 'none';
+                  document.body.style.overflow = '';
+                }
+                modalClose.addEventListener('click', hideModal);
+                modal.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
+                document.addEventListener('keydown', (e) => {
+                  if (e.key === 'Escape' && modal.style.display === 'flex') hideModal();
+                });
 
                 form.addEventListener('submit', async (e) => {
                   e.preventDefault();
@@ -190,8 +241,7 @@
 
                   const data = Object.fromEntries(new FormData(form).entries());
                   if (!data.name || !data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-                    status.style.color = '#b00';
-                    status.textContent = t('required');
+                    showModal('err', 'requiredTitle', 'requiredBody');
                     return;
                   }
 
@@ -211,15 +261,17 @@
                     const json = await res.json().catch(() => ({}));
                     if (res.ok && json.ok) {
                       form.reset();
-                      status.style.color = '#166534';
-                      status.textContent = t('ok');
+                      status.textContent = '';
+                      showModal('ok', 'okTitle', 'okBody');
                     } else {
-                      status.style.color = '#b00';
-                      status.textContent = json.error || t('err');
+                      status.textContent = '';
+                      modalBody.textContent = json.error || t('errBody');
+                      showModal('err', 'errTitle', 'errBody');
+                      if (json.error) modalBody.textContent = json.error;
                     }
                   } catch (err) {
-                    status.style.color = '#b00';
-                    status.textContent = t('err');
+                    status.textContent = '';
+                    showModal('err', 'errTitle', 'errBody');
                   } finally {
                     btn.disabled = false;
                     btn.textContent = originalText;
