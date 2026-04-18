@@ -266,7 +266,8 @@ var I18N_DATA = {
       "partnership": "Partnership",
       "contact": "Contact",
       "rights": "Mijenro International. All rights reserved.",
-      "legal": "General Company Introduction Website"
+      "legal": "General Company Introduction Website",
+      "privacy": "Privacy Policy"
     }
   },
   "zh": {
@@ -536,7 +537,8 @@ var I18N_DATA = {
       "partnership": "业务合作",
       "contact": "联系我们",
       "rights": "美杰合国际公司 保留所有权利。",
-      "legal": "综合性公司介绍网站"
+      "legal": "综合性公司介绍网站",
+      "privacy": "隐私政策"
     }
   }
 };
