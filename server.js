@@ -9,6 +9,15 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const TO_EMAIL = process.env.TO_EMAIL || 'contact@mijenro.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'Mijenro Website <onboarding@resend.dev>';
 
+// Canonical host redirect: www.mijenro.com → mijenro.com (301)
+app.use((req, res, next) => {
+  const host = (req.headers.host || '').toLowerCase();
+  if (host.startsWith('www.')) {
+    return res.redirect(301, `https://${host.slice(4)}${req.originalUrl}`);
+  }
+  next();
+});
+
 app.use(express.json({ limit: '32kb' }));
 app.use(express.urlencoded({ extended: true, limit: '32kb' }));
 
