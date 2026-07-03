@@ -94,19 +94,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const siteNav = document.getElementById('site-nav');
 
   if (toggleButton && siteNav) {
+    const setOpen = (open) => {
+      toggleButton.setAttribute('aria-expanded', open);
+      siteNav.classList.toggle('open', open);
+      toggleButton.textContent = open ? 'Close' : 'Menu';
+    };
     toggleButton.addEventListener('click', () => {
-      const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
-      toggleButton.setAttribute('aria-expanded', !isExpanded);
-      siteNav.classList.toggle('open');
-
-      // Prevent body scroll when menu is open
-      if (!isExpanded) {
-        document.body.style.overflow = 'hidden';
-        toggleButton.textContent = 'Close';
-      } else {
-        document.body.style.overflow = '';
-        toggleButton.textContent = 'Menu';
-      }
+      setOpen(toggleButton.getAttribute('aria-expanded') !== 'true');
+    });
+    // Close the dropdown when a nav link is tapped
+    siteNav.addEventListener('click', (e) => {
+      if (e.target.closest('a')) setOpen(false);
     });
   }
 });
