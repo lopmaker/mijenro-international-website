@@ -1,5 +1,8 @@
 // script.js
 
+// Mark JS availability so reveal-on-scroll styles only hide content when they can un-hide it
+document.documentElement.classList.add('js');
+
 // --- i18n Configuration ---
 let currentLang = localStorage.getItem('mijenro_lang') || 'en';
 let translations = {};
@@ -16,6 +19,8 @@ async function loadLanguage(lang) {
     applyTranslations();
     document.body.classList.remove('loading-i18n');
     document.body.classList.add('i18n-ready');
+
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
 
     // Update active state on language switcher buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -106,44 +111,57 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// --- Sticky Header Effect ---
+// --- Scroll Reveal (staggered, per design) ---
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('.site-header');
-
-  if (header) {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    // Initial check
-    handleScroll();
-  }
+  document.querySelectorAll('[data-reveal]').forEach((el) => {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        const sibs = el.parentElement
+          ? Array.prototype.filter.call(el.parentElement.children, (c) => c.hasAttribute('data-reveal'))
+          : [];
+        const delay = Math.max(0, sibs.indexOf(el)) * 0.09;
+        el.style.transition =
+          'opacity .7s cubic-bezier(.2,.7,.2,1) ' + delay + 's, transform .7s cubic-bezier(.2,.7,.2,1) ' + delay + 's';
+        el.classList.add('revealed');
+      });
+    }, { threshold: 0.12 });
+    io.observe(el);
+  });
 });
 
-// --- Scroll Reveal Animations ---
+// --- Services selector (services.html) ---
 document.addEventListener('DOMContentLoaded', () => {
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-  };
+  const names = document.querySelectorAll('.svc-name');
+  const panels = document.querySelectorAll('.svc-panel');
+  const ghostNum = document.getElementById('svc-ghost-num');
+  if (!names.length || !panels.length) return;
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
+  names.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = btn.getAttribute('data-svc');
+      names.forEach((b) => b.classList.toggle('active', b === btn));
+      panels.forEach((p) => p.classList.toggle('active', p.getAttribute('data-svc') === idx));
+      if (ghostNum) ghostNum.textContent = '0' + (parseInt(idx, 10) + 1);
     });
-  }, observerOptions);
-
-  const revealElements = document.querySelectorAll('.reveal');
-  revealElements.forEach(el => observer.observe(el));
+  });
 });
 
-
+// --- FAQ accordion (contact.html) ---
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const toggle = item.querySelector('.faq-toggle');
+    const icon = item.querySelector('.faq-icon');
+    if (!toggle) return;
+    const flip = () => {
+      const open = item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+      if (icon) icon.textContent = open ? '−' : '+';
+    };
+    toggle.addEventListener('click', flip);
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+    });
+  });
+});

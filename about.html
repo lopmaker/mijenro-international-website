@@ -31,43 +31,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Outfit:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 
   <style>
-    body.loading-i18n {
-      opacity: 0;
-    }
-
-    body.i18n-ready {
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    .lang-switcher {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      margin-left: 1rem;
-      padding-left: 1rem;
-      border-left: 1px solid var(--border-subtle);
-    }
-
-    .lang-btn {
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      padding: 0.25rem;
-    }
-
-    .lang-btn.active {
-      color: var(--corporate-navy);
-      border-bottom: 2px solid var(--brand-gold);
-    }
+    body.loading-i18n { opacity: 0; }
+    body.i18n-ready { opacity: 1; transition: opacity 0.3s ease; }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8S44P3CC1"></script>
@@ -80,224 +50,110 @@
 </head>
 
 <body class="loading-i18n">
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container header-row">
-        <a class="brand" href="index.html" aria-label="Mijenro International home">
-          <img class="brand-logo-horizontal" src="assets/new_logo.png"
-            alt="Mijenro International LLC logo" />
-        </a>
-        <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
-          <a class="nav-link active" href="about.html" data-i18n="nav.about">About</a>
-          <a class="nav-link" href="services.html" data-i18n="nav.services">Services</a>
-          <a class="nav-link" href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
-          <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
-          <div class="lang-switcher">
-            <button class="lang-btn active" onclick="setLanguage('en')" data-i18n="nav.lang_en">EN</button>
-            <button class="lang-btn" onclick="setLanguage('zh')" data-i18n="nav.lang_zh">中文</button>
-          </div>
-        </nav>
-        <a class="button button-primary button-small" href="contact.html" data-i18n="nav.cta">Connect With Us</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Mijenro International home">
+      <img class="brand-logo" src="assets/logo-stacked.svg" alt="Mijenro International LLC logo" />
+    </a>
+    <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a class="nav-pill" href="index.html" data-i18n="nav.home">Home</a>
+      <a class="nav-pill active" href="about.html" data-i18n="nav.about">About</a>
+      <a class="nav-pill" href="services.html" data-i18n="nav.services">Services</a>
+      <a class="nav-pill" href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
+      <a class="nav-pill nav-pill-contact" href="contact.html" data-i18n="nav.contact">Contact</a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('en')" data-i18n="nav.lang_en">EN</button>
+        <button class="lang-btn" onclick="setLanguage('zh')" data-i18n="nav.lang_zh">中文</button>
       </div>
-    </header>
+    </nav>
+    <a class="nav-cta" href="contact.html"><span data-i18n="nav.contact">Contact</span> ↗</a>
+  </header>
 
-    <main>
-      <section class="hero reveal">
-        <div class="container hero-grid"
-          style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-          <div>
-            <span class="eyebrow" data-i18n="about.heroEyebrow">About Mijenro</span>
-            <h1 data-i18n="about.heroTitle" style="margin-bottom: 1.5rem;">A Garment Wholesale Company Built for
-              Reliable Partnership</h1>
-            <p data-i18n="about.heroSubtitle"
-              style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6;">
-              Mijenro International bridges global buyers with disciplined garment production teams. Our philosophy:
-              predictable execution, transparent communication, and measurable quality.
-          </div>
-          <div class="hero-panel">
-            <article class="hero-card"
-              style="border-radius: var(--radius-m); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
-              <img src="assets/mijenro_about_meeting.png" alt="Mijenro New York boardroom meeting"
-                style="width: 100%; aspect-ratio: 16/9; object-fit: cover;" />
-              <div class="hero-metric-row display-flex"
-                style="display:flex; gap: 2rem; padding: 2rem; background: var(--surface-bg);">
-                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
-                  <div class="stat-number" data-i18n="about.statTeam">280+</div>
-                  <p data-i18n="about.statTeamLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">Team members
-                    in operations</p>
-                </div>
-                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
-                  <div class="stat-number" data-i18n="about.statFacility">9</div>
-                  <p data-i18n="about.statFacilityLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">
-                    Production partner facilities</p>
-                </div>
-                <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
-                  <div class="stat-number" data-i18n="about.statRetention">98%</div>
-                  <p data-i18n="about.statRetentionLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">Repeat
-                    wholesale accounts</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+  <main>
+    <div class="hero">
+      <span class="label" data-i18n="about.heroEyebrow">About Mijenro</span>
+      <h1 class="display rise-2">
+        <span data-i18n="about.heroLine1">Built on reliable</span><br>
+        <span class="outline" data-i18n="about.heroLine2">relationships</span><span class="accent">.</span>
+      </h1>
+      <p class="lead" data-i18n="about.heroSubtitle">Operated by a highly efficient US–Asia dual team, Mijenro International bridges global buyers with disciplined garment production teams. Our philosophy: predictable execution, transparent communication, and measurable quality — across licensing and branded apparel production.</p>
+    </div>
 
-      <section
-        style="background-color: var(--surface-bg-alt); padding: 4rem 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); overflow: hidden;">
-        <div class="container" style="text-align: center; max-width: 1200px;">
-          <h4
-            style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 3rem;"
-            data-i18n="about.trustedEyebrow">Trusted supply chain partner for leading global retailers:</h4>
+    <div class="stat-grid tight">
+      <div class="stat" data-reveal>
+        <div class="stat-value" data-i18n="about.statTeam">280+</div>
+        <div class="stat-label" data-i18n="about.statTeamLabel">Team members in operations</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat-value" data-i18n="about.statFacility">9</div>
+        <div class="stat-label" data-i18n="about.statFacilityLabel">Production partner facilities</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat-value accent" data-i18n="about.statRetention">98%</div>
+        <div class="stat-label" data-i18n="about.statRetentionLabel">Repeat wholesale accounts</div>
+      </div>
+    </div>
 
-          <div class="marquee-wrapper">
-            <div class="marquee-content" style="animation-duration: 40s; gap: 5rem; padding-right: 5rem;">
-              <div class="retailer-logo retailer-marquee-logo r-walmart" style="font-size: 1.8rem;">WALMART</div>
-              <div class="retailer-logo retailer-marquee-logo r-costco" style="font-size: 1.8rem; font-family: 'Futura Extra Bold', 'Arial Black', 'Impact', sans-serif; font-weight: 900; font-style: oblique;">COSTCO</div>
-              <div class="retailer-logo retailer-marquee-logo r-target" style="font-size: 1.8rem;">TARGET</div>
-              <div class="retailer-logo retailer-marquee-logo r-marmaxx" style="font-size: 1.8rem; font-family: 'Noto Serif SC', serif; color: blue;">Marshalls</div>
-              <div class="retailer-logo retailer-marquee-logo r-ross" style="font-size: 2.1rem;">Ross</div>
-              <div class="retailer-logo retailer-marquee-logo r-burlington" style="font-size: 1.8rem; font-family: 'Noto Serif SC', serif; font-weight: bold; color: red;">Burlington</div>
-              <div class="retailer-logo retailer-marquee-logo r-fashionnova" style="font-size: 1.5rem;">FASHION NOVA
-              </div>
-              <div class="retailer-logo retailer-marquee-logo r-fivebelow" style="font-size: 1.9rem;">five<span
-                  style="font-size:1.4rem;">BELOW</span></div>
-              <div class="retailer-logo retailer-marquee-logo r-pacsun" style="font-size: 1.8rem;">PACSUN</div>
-              <div class="retailer-logo retailer-marquee-logo r-amazon" style="font-size: 1.8rem; font-family: 'Amazon Logo Sans', 'Amazon Ember', Arial, sans-serif; font-weight: bold;">AMAZON</div>
-              <div class="retailer-logo retailer-marquee-logo r-familydollar" style="font-size: 1.6rem; font-family: 'Tabasco', sans-serif; font-weight: bold; color: red;">FAMILY <span style="color: gold;">DOLLAR</span></div>
-              <div class="retailer-logo retailer-marquee-logo r-gap" style="font-size: 1.8rem; font-family: 'Spire', serif; color: navy;">GAP</div>
-              <div class="retailer-logo retailer-marquee-logo r-tillys" style="font-size: 1.8rem; font-family: 'Letraset Crillee Std Extra Bold Italic', 'Crillee', sans-serif; font-style: italic; font-weight: bold; color: gold;">TiLLYS</div>
-              <div class="retailer-logo retailer-marquee-logo r-aeropostale" style="font-size: 1.8rem; font-family: 'Avenir', 'Futura', 'Montserrat', 'Century Gothic', sans-serif;">Aéropostale</div>
-            </div>
-            <!-- Duplicate for seamless looping -->
-            <div class="marquee-content" style="animation-duration: 40s; gap: 5rem; padding-right: 5rem;"
-              aria-hidden="true">
-              <div class="retailer-logo retailer-marquee-logo r-walmart" style="font-size: 1.8rem;">WALMART</div>
-              <div class="retailer-logo retailer-marquee-logo r-costco" style="font-size: 1.8rem; font-family: 'Futura Extra Bold', 'Arial Black', 'Impact', sans-serif; font-weight: 900; font-style: oblique;">COSTCO</div>
-              <div class="retailer-logo retailer-marquee-logo r-target" style="font-size: 1.8rem;">TARGET</div>
-              <div class="retailer-logo retailer-marquee-logo r-marmaxx" style="font-size: 1.8rem; font-family: 'Noto Serif SC', serif; color: blue;">Marshalls</div>
-              <div class="retailer-logo retailer-marquee-logo r-ross" style="font-size: 2.1rem;">Ross</div>
-              <div class="retailer-logo retailer-marquee-logo r-burlington" style="font-size: 1.8rem; font-family: 'Noto Serif SC', serif; font-weight: bold; color: red;">Burlington</div>
-              <div class="retailer-logo retailer-marquee-logo r-fashionnova" style="font-size: 1.5rem;">FASHION NOVA
-              </div>
-              <div class="retailer-logo retailer-marquee-logo r-fivebelow" style="font-size: 1.9rem;">five<span
-                  style="font-size:1.4rem;">BELOW</span></div>
-              <div class="retailer-logo retailer-marquee-logo r-pacsun" style="font-size: 1.8rem;">PACSUN</div>
-              <div class="retailer-logo retailer-marquee-logo r-amazon" style="font-size: 1.8rem; font-family: 'Amazon Logo Sans', 'Amazon Ember', Arial, sans-serif; font-weight: bold;">AMAZON</div>
-              <div class="retailer-logo retailer-marquee-logo r-familydollar" style="font-size: 1.6rem; font-family: 'Tabasco', sans-serif; font-weight: bold; color: red;">FAMILY <span style="color: gold;">DOLLAR</span></div>
-              <div class="retailer-logo retailer-marquee-logo r-gap" style="font-size: 1.8rem; font-family: 'Spire', serif; color: navy;">GAP</div>
-              <div class="retailer-logo retailer-marquee-logo r-tillys" style="font-size: 1.8rem; font-family: 'Letraset Crillee Std Extra Bold Italic', 'Crillee', sans-serif; font-style: italic; font-weight: bold; color: gold;">TiLLYS</div>
-              <div class="retailer-logo retailer-marquee-logo r-aeropostale" style="font-size: 1.8rem; font-family: 'Avenir', 'Futura', 'Montserrat', 'Century Gothic', sans-serif;">Aéropostale</div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div class="ticker" style="border-bottom:none">
+      <span class="ticker-label" data-i18n="about.trustedEyebrow">Trusted supply chain partner for leading global retailers</span>
+      <div class="ticker-track fast">
+        <span>Walmart · Costco · Target · Ross · Burlington · Marshalls · Amazon · Gap · PacSun · Five Below · Aéropostale ·&nbsp;</span>
+        <span aria-hidden="true">Walmart · Costco · Target · Ross · Burlington · Marshalls · Amazon · Gap · PacSun · Five Below · Aéropostale ·&nbsp;</span>
+      </div>
+    </div>
 
-      <section class="soft-surface reveal">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow" data-i18n="about.approachEyebrow">Modern Approach</span>
-            <h2 data-i18n="about.approachTitle">Agile Garment Manufacturing Built for Today's Market</h2>
-            <p data-i18n="about.approachSubtitle">
-              As a newly established, forward-thinking wholesale partner, we leverage modern supply chain strategies,
-              digital communication, and strict operational transparency to deliver premium garments on time.
-            </p>
-          </div>
-          <div class="industry-gallery">
-            <img src="assets/mijenro_sewing_line.png" alt="Clean and bright garment production line"
-              class="img-corporate-frame" />
-            <img src="assets/mijenro_qc_measuring.png" alt="Quality control inspection process" class="img-corporate-frame" />
-            <img src="assets/mijenro_warehouse_logistics.png" alt="Modern logistics and inventory management"
-              class="img-corporate-frame" />
-          </div>
-        </div>
-      </section>
+    <div class="dark-section">
+      <span class="label" data-i18n="about.approachEyebrow">Modern approach</span>
+      <h2 class="display"><span data-i18n="about.approachTitle">Agile garment manufacturing built for today's market</span><span class="accent">.</span></h2>
+      <p class="lead" data-i18n="about.approachSubtitle">We leverage modern supply-chain strategies, digital communication, and strict operational transparency to deliver premium garments on time.</p>
+    </div>
 
-      <section class="reveal">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow" data-i18n="about.valuesEyebrow">Our Values</span>
-            <h2 data-i18n="about.valuesTitle" style="max-width: 900px; margin: 0 auto; text-wrap: balance;">What
-              Partners Can Expect Working With Us</h2>
-          </div>
-          <div class="grid-3">
-            <article class="card">
-              <span class="icon-badge">01</span>
-              <h3 data-i18n="about.value1Title">Accountability</h3>
-              <p data-i18n="about.value1Desc">Each program has clear ownership from sampling to shipment readiness.</p>
-            </article>
-            <article class="card">
-              <span class="icon-badge">02</span>
-              <h3 data-i18n="about.value2Title">Transparency</h3>
-              <p data-i18n="about.value2Desc">Structured updates on production milestones, quality status, and shipping
-                progress.</p>
-            </article>
-            <article class="card">
-              <span class="icon-badge">03</span>
-              <h3 data-i18n="about.value3Title">Scalability</h3>
-              <p data-i18n="about.value3Desc">Capacity planning designed to support both pilot volumes and larger
-                reorder cycles.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="reveal">
-        <div class="container cta-banner">
-          <div>
-            <h2 class="h2" data-i18n="about.ctaTitle">Need a Stronger Vendor Narrative for Your Buying Team?</h2>
-            <p data-i18n="about.ctaSubtitle">We can share a concise company deck and capability profile for your target category.</p>
-          </div>
-          <a class="button button-primary" href="contact.html" data-i18n="about.ctaButton">Request Introduction Pack</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <h2 style="font-size: 2rem; letter-spacing: 0.1em; color: var(--surface-bg); margin-bottom: 1rem; font-weight: 800;">MIJENRO</h2>
-            <p data-i18n="footer.descAbout">Ready to build practical, long-term partnership models in garment wholesale.
-            </p>
-          </div>
-          <div class="footer-col">
-            <h4 data-i18n="footer.company">Company</h4>
-            <ul>
-              <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
-              <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-              <li><a href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a></li>
-              <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4 data-i18n="footer.partnership">Partnership</h4>
-            <ul>
-              <li data-i18n="home.processStep1">Sourcing & Verification</li>
-              <li data-i18n="home.processStep2">Precision Manufacturing</li>
-              <li data-i18n="home.processStep3">Final Audit & Logistics</li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4 data-i18n="footer.contact">Contact</h4>
-            <ul>
-              <li>contact@mijenro.com</li>
-
-              <li>New York, USA</li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span>© <span data-year></span> <span data-i18n="footer.rights">Mijenro International. All rights
-              reserved.</span></span>
-          <span data-i18n="footer.legal">General Company Introduction Website</span>
+    <div class="values-section">
+      <span class="label" data-i18n="about.valuesTitle">What partners can expect</span>
+      <div class="value-row" data-reveal>
+        <div class="value-num ghost">01</div>
+        <div class="value-copy">
+          <h3 class="value-title" data-i18n="about.value1Title">Customer-centric longevity</h3>
+          <p class="value-desc" data-i18n="about.value1Desc">We align operations with your requirements, bypassing rigid bureaucracy to build enduring partnerships focused on scalable, sustainable growth.</p>
         </div>
       </div>
-    </footer>
-  </div>
+      <div class="value-row flip" data-reveal>
+        <div class="value-copy">
+          <h3 class="value-title" data-i18n="about.value2Title">Managed complexity, visible progress</h3>
+          <p class="value-desc" data-i18n="about.value2Desc">Our team absorbs the friction of global sourcing, giving you a high-level view of production through structured, trackable milestones.</p>
+        </div>
+        <div class="value-num accent">02</div>
+      </div>
+      <div class="value-row" data-reveal>
+        <div class="value-num">03</div>
+        <div class="value-copy">
+          <h3 class="value-title" data-i18n="about.value3Title">Operational transparency</h3>
+          <p class="value-desc" data-i18n="about.value3Desc">We eliminate the "black box" of overseas manufacturing — individual program accountability plus structured progress reporting at every stage.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <svg class="footer-mark" width="440" height="260" viewBox="0 60 250 140" fill="none" aria-hidden="true"><path d="M16 186V78L118 132L234 78V186" stroke="#E3A65E" stroke-width="12" stroke-linejoin="miter"></path></svg>
+    <a class="footer-cta" href="contact.html"><span data-i18n="footer.startProgram">Start a program</span><span class="accent"> ↗</span></a>
+    <div class="footer-links">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+    </div>
+    <div class="footer-meta">
+      <span>CONTACT@MIJENRO.COM</span>
+      <span>NEW YORK · SHANGHAI · HANOI · PHNOM PENH · DHAKA</span>
+      <span>© <span data-year></span> <span data-i18n="footer.rights">Mijenro International LLC. All rights reserved.</span></span>
+    </div>
+  </footer>
+
   <script src="locales/i18n-data.js"></script>
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 
 </html>
