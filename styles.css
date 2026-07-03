@@ -711,6 +711,7 @@ html.js [data-reveal].revealed { opacity: 1; transform: none; }
   .comp-row, .cert-row { grid-template-columns: 1fr; gap: 14px; }
   .value-row, .value-row.flip { grid-template-columns: 1fr; gap: 16px; }
   .value-row.flip .value-copy, .value-row.flip .value-num { justify-self: start; text-align: left; }
+  .value-row.flip .value-num { order: -1; } /* keep the number above the copy when stacked */
   .value-num { font-size: clamp(64px, 14vw, 110px); }
 }
 
