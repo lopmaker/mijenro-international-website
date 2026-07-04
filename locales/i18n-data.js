@@ -261,7 +261,8 @@ var I18N_DATA = {
       "contact": "Contact",
       "rights": "Mijenro International LLC. All rights reserved.",
       "legal": "General Company Introduction Website",
-      "privacy": "Privacy Policy"
+      "privacy": "Privacy Policy",
+      "cities": "New York · Shanghai · Nanchang · Phnom Penh"
     }
   },
   "zh": {
@@ -525,7 +526,8 @@ var I18N_DATA = {
       "contact": "联系我们",
       "rights": "美杰合国际公司 保留所有权利。",
       "legal": "综合性公司介绍网站",
-      "privacy": "隐私政策"
+      "privacy": "隐私政策",
+      "cities": "纽约 · 上海 · 南昌 · 金边"
     }
   }
 };
