@@ -7,3 +7,6 @@ npm-debug.log
 # Local preview experiments — not deployed
 preview-*.html
 preview-style.css
+
+# Vercel (deployment is on Zeabur)
+.vercel/
