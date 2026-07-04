@@ -31,43 +31,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Outfit:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 
   <style>
-    body.loading-i18n {
-      opacity: 0;
-    }
-
-    body.i18n-ready {
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    .lang-switcher {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      margin-left: 1rem;
-      padding-left: 1rem;
-      border-left: 1px solid var(--border-subtle);
-    }
-
-    .lang-btn {
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      padding: 0.25rem;
-    }
-
-    .lang-btn.active {
-      color: var(--corporate-navy);
-      border-bottom: 2px solid var(--brand-gold);
-    }
+    body.loading-i18n { opacity: 0; }
+    body.i18n-ready { opacity: 1; transition: opacity 0.3s ease; }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8S44P3CC1"></script>
@@ -80,179 +50,120 @@
 </head>
 
 <body class="loading-i18n">
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container header-row">
-        <a class="brand" href="index.html" aria-label="Mijenro International home">
-          <img class="brand-logo-horizontal" src="assets/new_logo.png"
-            alt="Mijenro International LLC logo" />
-        </a>
-        <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
-          <a class="nav-link" href="about.html" data-i18n="nav.about">About</a>
-          <a class="nav-link" href="services.html" data-i18n="nav.services">Services</a>
-          <a class="nav-link active" href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
-          <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
-          <div class="lang-switcher">
-            <button class="lang-btn active" onclick="setLanguage('en')" data-i18n="nav.lang_en">EN</button>
-            <button class="lang-btn" onclick="setLanguage('zh')" data-i18n="nav.lang_zh">中文</button>
-          </div>
-        </nav>
-        <a class="button button-primary button-small" href="contact.html" data-i18n="nav.cta">Connect With Us</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Mijenro International home">
+      <img class="brand-logo" src="assets/new_logo.png" alt="Mijenro International LLC logo" />
+    </a>
+    <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a class="nav-pill" href="index.html" data-i18n="nav.home">Home</a>
+      <a class="nav-pill" href="about.html" data-i18n="nav.about">About</a>
+      <a class="nav-pill" href="services.html" data-i18n="nav.services">Services</a>
+      <a class="nav-pill active" href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
+      <a class="nav-pill nav-pill-contact" href="contact.html" data-i18n="nav.contact">Contact</a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLanguage('en')" data-i18n="nav.lang_en">EN</button>
+        <button class="lang-btn" onclick="setLanguage('zh')" data-i18n="nav.lang_zh">中文</button>
       </div>
-    </header>
+    </nav>
+    <a class="nav-cta" href="contact.html"><span data-i18n="nav.contact">Contact</span> ↗</a>
+  </header>
 
-    <main>
-      <section class="hero reveal">
-        <div class="container hero-grid"
-          style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+  <main>
+    <div class="hero">
+      <span class="label" data-i18n="sustainability.heroEyebrow">Sustainability &amp; Compliance</span>
+      <h1 class="display rise-2">
+        <span data-i18n="sustainability.heroLine1">Responsible</span><br>
+        <span class="outline" data-i18n="sustainability.heroLine2">production</span><span class="accent">.</span>
+      </h1>
+      <p class="lead" data-i18n="sustainability.heroSubtitle">Transparent, achievable compliance standards that align with global customer requirements, without compromising production efficiency.</p>
+    </div>
+
+    <div class="stat-grid tight">
+      <div class="stat" data-reveal>
+        <div class="stat-value" data-i18n="sustainability.statWaste">12+</div>
+        <div class="stat-label" data-i18n="sustainability.statWasteLabel">Certification systems supported</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat-value" data-i18n="sustainability.statCode">100%</div>
+        <div class="stat-label" data-i18n="sustainability.statCodeLabel">Partner factories audited before onboarding</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat-value accent" data-i18n="sustainability.statAudit">AQL 2.5</div>
+        <div class="stat-label" data-i18n="sustainability.statAuditLabel">Pre-shipment inspection standard</div>
+      </div>
+    </div>
+
+    <div class="comp-section">
+      <span class="label" data-i18n="sustainability.areasLabel">Compliance areas — focused on what buyers review most</span>
+      <div class="comp-list">
+        <div class="comp-row" data-reveal>
+          <div class="comp-name" data-i18n="sustainability.area1Title">Labor &amp; welfare</div>
           <div>
-            <span class="eyebrow" data-i18n="sustainability.heroEyebrow">Sustainability & Compliance</span>
-            <h1 data-i18n="sustainability.heroTitle">Responsible Production Practices for Global Wholesale Buyers</h1>
-            <p data-i18n="sustainability.heroSubtitle">
-              Mijenro International supports partners with practical sustainability and compliance initiatives that fit
-              real production environments and customer requirements.
-            </p>
-          </div>
-          <div class="hero-panel">
-            <div class="hero-showcase" style="height: auto;">
-              <img src="assets/mijenro_sustainability.jpg"
-                alt="Modern eco-friendly garment production facility with natural light" style="height: auto; min-height: 0; object-fit: contain;" />
-            </div>
-            <div class="hero-metric-row display-flex"
-              style="display:flex; gap: 2rem; padding: 2rem; background: var(--surface-bg);">
-              <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
-                <div class="stat-number" data-i18n="sustainability.statWaste">95%</div>
-                <p data-i18n="sustainability.statWasteLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">
-                  Waste segregation coverage</p>
-              </div>
-              <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
-                <div class="stat-number" data-i18n="sustainability.statCode">100%</div>
-                <p data-i18n="sustainability.statCodeLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">
-                  Supplier code acceptance</p>
-              </div>
-              <div class="metric" style="border-left: 2px solid var(--brand-gold); padding-left: 1rem;">
-                <div class="stat-number" data-i18n="sustainability.statAudit">A</div>
-                <p data-i18n="sustainability.statAuditLabel" style="font-size:0.85rem; line-height:1.2; margin:0;">
-                  Internal social audit grade</p>
-              </div>
-            </div>
+            <div class="comp-tag" data-i18n="sustainability.area1Tag">Site-level monitoring</div>
+            <p class="comp-desc" data-i18n="sustainability.area1Desc">Working-hour controls, wage records, and worker welfare practices monitored at site level.</p>
           </div>
         </div>
-      </section>
-
-      <section class="soft-surface reveal">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow" data-i18n="sustainability.areasEyebrow">Compliance Areas</span>
-            <h2 data-i18n="sustainability.areasTitle">Focused on What Buyers Review Most</h2>
-          </div>
-          <div class="grid-3">
-            <article class="card">
-              <span class="icon-badge">01</span>
-              <h3 data-i18n="sustainability.area1Title">Labor & Welfare</h3>
-              <p data-i18n="sustainability.area1Desc">Working-hour controls, wage records, and worker welfare practices
-                monitored at site level.</p>
-            </article>
-            <article class="card">
-              <span class="icon-badge">02</span>
-              <h3 data-i18n="sustainability.area2Title">Facility Safety</h3>
-              <p data-i18n="sustainability.area2Desc">Safety drills, equipment controls, and maintenance logs integrated
-                into routine operations.</p>
-            </article>
-            <article class="card">
-              <span class="icon-badge">03</span>
-              <h3 data-i18n="sustainability.area3Title">Environmental Handling</h3>
-              <p data-i18n="sustainability.area3Desc">Waste classification, utility monitoring, and reduction targets
-                with periodic internal reviews.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="reveal">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow" data-i18n="sustainability.certsEyebrow">Certifications & Audits</span>
-            <h2 data-i18n="sustainability.certsTitle">Documentation Available for Buyer Onboarding</h2>
-          </div>
-          <div class="grid-3">
-            <article class="card">
-              <h3 data-i18n="sustainability.cert1Title">Social Compliance Audits</h3>
-              <p data-i18n="sustainability.cert1Desc">Third-party assessment summaries and remediation tracking where
-                applicable.</p>
-            </article>
-            <article class="card">
-              <h3 data-i18n="sustainability.cert2Title">Quality Management Files</h3>
-              <p data-i18n="sustainability.cert2Desc">Process SOP overviews and inspection records for purchase order
-                execution.</p>
-            </article>
-            <article class="card">
-              <h3 data-i18n="sustainability.cert3Title">Restricted Substance Alignment</h3>
-              <p data-i18n="sustainability.cert3Desc">Material declarations and supplier communication for product
-                compliance readiness.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="reveal">
-        <div class="container cta-banner">
+        <div class="comp-row" data-reveal>
+          <div class="comp-name outline" data-i18n="sustainability.area2Title">Facility safety</div>
           <div>
-            <h2 class="h2" data-i18n="sustainability.ctaTitle">Need Compliance Background for Vendor Setup?</h2>
-            <p data-i18n="sustainability.ctaSubtitle">Contact us to request our standard compliance and quality
-              information package.</p>
-          </div>
-          <a class="button button-primary" href="contact.html" data-i18n="sustainability.ctaButton">Request Compliance
-            Pack</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <h2 style="font-size: 2rem; letter-spacing: 0.1em; color: var(--surface-bg); margin-bottom: 1rem; font-weight: 800;">MIJENRO</h2>
-            <p data-i18n="footer.descHome">Built for long-term wholesale relationships in the garment industry.</p>
-          </div>
-          <div class="footer-col">
-            <h4 data-i18n="footer.company">Company</h4>
-            <ul>
-              <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
-              <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-              <li><a href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a></li>
-              <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4 data-i18n="footer.partnership">Partnership</h4>
-            <ul>
-              <li data-i18n="sustainability.cert1Title">Social Compliance Audits</li>
-              <li data-i18n="sustainability.area2Title">Facility Safety</li>
-              <li data-i18n="sustainability.cert3Title">Restricted Substance Alignment</li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4 data-i18n="footer.contact">Contact</h4>
-            <ul>
-              <li>contact@mijenro.com</li>
-
-              <li>New York, USA</li>
-            </ul>
+            <div class="comp-tag" data-i18n="sustainability.area2Tag">Routine operations</div>
+            <p class="comp-desc" data-i18n="sustainability.area2Desc">Safety drills, equipment controls, and maintenance logs integrated into routine operations.</p>
           </div>
         </div>
-        <div class="footer-bottom">
-          <span>© <span data-year></span> <span data-i18n="footer.rights">Mijenro International. All rights
-              reserved.</span></span>
-          <span data-i18n="footer.legal">General Company Introduction Website</span>
+        <div class="comp-row" data-reveal>
+          <div class="comp-name accent" data-i18n="sustainability.area3Title">Environmental handling</div>
+          <div>
+            <div class="comp-tag" data-i18n="sustainability.area3Tag">Periodic internal reviews</div>
+            <p class="comp-desc" data-i18n="sustainability.area3Desc">Waste classification, utility monitoring, and reduction targets with periodic internal reviews.</p>
+          </div>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+
+    <div class="dark-section cert-section" style="padding-top:80px;padding-bottom:80px">
+      <span class="label" data-i18n="sustainability.certsLabel">Certifications &amp; audits — available for buyer onboarding</span>
+      <div class="cert-list">
+        <div class="cert-row" data-reveal>
+          <span class="cert-index">(01)</span>
+          <span class="cert-name" data-i18n="sustainability.cert1Title">Social compliance audits</span>
+          <span class="cert-desc" data-i18n="sustainability.cert1Desc">Third-party assessment summaries and remediation tracking where applicable.</span>
+        </div>
+        <div class="cert-row" data-reveal>
+          <span class="cert-index">(02)</span>
+          <span class="cert-name" data-i18n="sustainability.cert2Title">Quality management files</span>
+          <span class="cert-desc" data-i18n="sustainability.cert2Desc">Process SOP overviews and inspection records for purchase order execution.</span>
+        </div>
+        <div class="cert-row" data-reveal>
+          <span class="cert-index">(03)</span>
+          <span class="cert-name" data-i18n="sustainability.cert3Title">Restricted substance alignment</span>
+          <span class="cert-desc" data-i18n="sustainability.cert3Desc">Material declarations and supplier communication for compliance readiness.</span>
+        </div>
+      </div>
+      <a class="btn btn-amber" href="contact.html"><span data-i18n="sustainability.ctaButton">Request compliance pack</span> ↗</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <svg class="footer-mark" width="440" height="260" viewBox="0 60 250 140" fill="none" aria-hidden="true"><path d="M16 186V78L118 132L234 78V186" stroke="#E3A65E" stroke-width="12" stroke-linejoin="miter"></path></svg>
+    <a class="footer-cta" href="contact.html"><span data-i18n="footer.startProgram">Start a program</span><span class="accent"> ↗</span></a>
+    <div class="footer-links">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="services.html" data-i18n="nav.services">Services</a>
+      <a href="sustainability.html" data-i18n="nav.sustainability">Sustainability</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+    </div>
+    <div class="footer-meta">
+      <span>CONTACT@MIJENRO.COM</span>
+      <span data-i18n="footer.cities">New York · Shanghai · Nanchang · Phnom Penh</span>
+      <span>© <span data-year></span> <span data-i18n="footer.rights">Mijenro International LLC. All rights reserved.</span></span>
+    </div>
+  </footer>
+
   <script src="locales/i18n-data.js"></script>
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 
 </html>
